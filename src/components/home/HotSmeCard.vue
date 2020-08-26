@@ -18,7 +18,7 @@
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-import HotSme from "@/views/Home.vue";
+import { HotSme } from "@/types.ts";
 
 @Component
 export default class HotSmeCard extends Vue {

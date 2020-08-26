@@ -21,16 +21,10 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
+import { HotSme } from "@/types.ts";
+
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
-
-export type HotSme = {
-  name: string;
-  id: number;
-  rank: number;
-  popularity: number;
-  imgs: Array<{ url: string }>;
-};
 
 @Component({
   components: {

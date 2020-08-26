@@ -13,12 +13,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-type SmeEvent = {
-  carouselImg: {
-    url: string;
-  };
-  id: number;
-};
+import { SmeEvent } from "@/types.ts";
 
 @Component
 export default class EventCarousel extends Vue {
