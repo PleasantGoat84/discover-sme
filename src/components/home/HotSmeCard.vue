@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pb-1">
+  <v-card class="pb-1" color="#f2f1e2">
     <v-card-title>
       <v-img
         :src="getSmeIcon(sme.category)"

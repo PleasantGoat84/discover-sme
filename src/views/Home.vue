@@ -12,6 +12,7 @@
           :sme="sme"
           class="ma-2"
           :class="i % 2 ? 'mr-n1' : 'ml-n1'"
+          :data-aos="i % 2 ? 'fade-left' : 'fade-right'"
         />
       </v-col>
     </v-row>
@@ -22,6 +23,8 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import { HotSme, SmeCategory } from "@/types.ts";
+
+import * as AOS from "aos";
 
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
@@ -84,6 +87,10 @@ export default class Home extends Vue {
         category: SmeCategory.Drink
       }
     ];
+  }
+
+  mounted() {
+    AOS.init();
   }
 }
 </script>
