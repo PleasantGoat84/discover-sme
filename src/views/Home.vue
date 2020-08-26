@@ -10,7 +10,7 @@
       <v-col cols="12" v-for="(sme, i) in hotSmes" :key="i">
         <HotSmeCard
           :sme="sme"
-          class="ma-1"
+          class="ma-2"
           :class="i % 2 ? 'mr-n1' : 'ml-n1'"
         />
       </v-col>
