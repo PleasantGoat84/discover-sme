@@ -12,7 +12,12 @@
     <v-card-subtitle class="d-flex align-center">
       熱門中小企 #{{ sme.rank }}
 
-      <v-img src="@/assets/fire.png" width="1.25em" class="mt-n1 ml-1 shrink" />
+      <v-img
+        src="@/assets/fire.png"
+        width="1.25em"
+        class="mt-n1 ml-1 shrink"
+        v-if="sme.rank <= 3"
+      />
     </v-card-subtitle>
 
     <div class="d-flex hot-sme-imgs">
