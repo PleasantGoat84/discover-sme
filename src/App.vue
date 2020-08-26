@@ -5,7 +5,7 @@
     <!-- Sizes your content based upon application components -->
     <v-main>
       <!-- Provides the application the proper gutter -->
-      <v-container fluid class="pa-0">
+      <v-container fluid class="px-0 pt-14">
         <!-- If using vue-router -->
         <router-view></router-view>
       </v-container>

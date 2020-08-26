@@ -1,6 +1,6 @@
 <template>
   <div>
-    <v-app-bar color="primary" dark hide-on-scroll>
+    <v-app-bar color="primary" dark dense fixed>
       <div class="d-flex">
         <router-link to="/home">
           <v-img
