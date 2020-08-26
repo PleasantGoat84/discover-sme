@@ -63,10 +63,10 @@ export default class Home extends Vue {
         rank: 2,
         popularity: 8547,
         imgs: [
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
+          { url: "http://via.placeholder.com/1080x960" },
+          { url: "http://via.placeholder.com/360x360" },
+          { url: "http://via.placeholder.com/500x600" },
+          { url: "http://via.placeholder.com/150x960" },
           { url: "http://via.placeholder.com/400x300" }
         ],
         category: SmeCategory.Other
