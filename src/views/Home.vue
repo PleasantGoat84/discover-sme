@@ -21,7 +21,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { HotSme } from "@/types.ts";
+import { HotSme, SmeCategory } from "@/types.ts";
 
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
@@ -51,7 +51,8 @@ export default class Home extends Vue {
           { url: "http://via.placeholder.com/400x200" },
           { url: "http://via.placeholder.com/400x300" },
           { url: "http://via.placeholder.com/400x300" }
-        ]
+        ],
+        category: SmeCategory.Cafe
       },
       {
         name: "乙乙工作坊",
@@ -64,10 +65,11 @@ export default class Home extends Vue {
           { url: "http://via.placeholder.com/400x300" },
           { url: "http://via.placeholder.com/400x300" },
           { url: "http://via.placeholder.com/400x300" }
-        ]
+        ],
+        category: SmeCategory.Other
       },
       {
-        name: "丙丙鮮花",
+        name: "丙丙飲品",
         id: 848,
         rank: 3,
         popularity: 6253,
@@ -78,7 +80,8 @@ export default class Home extends Vue {
           { url: "http://via.placeholder.com/400x300" },
           { url: "http://via.placeholder.com/400x300" },
           { url: "http://via.placeholder.com/400x300" }
-        ]
+        ],
+        category: SmeCategory.Drink
       }
     ];
   }
