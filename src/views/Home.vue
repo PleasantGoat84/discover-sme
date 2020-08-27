@@ -16,8 +16,8 @@
         />
       </v-col>
 
-      <v-col cols="12">
-        <v-card tile elevation="5" class="pb-3">
+      <v-col cols="12" class="my-4">
+        <v-card tile elevation="5" class="py-3">
           <v-card-title class="justify-center">更多熱門中小企?</v-card-title>
           <v-card-actions class="justify-center">
             <v-btn rounded color="accent" dark to="/view-all">
