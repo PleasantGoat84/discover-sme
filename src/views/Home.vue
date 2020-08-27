@@ -6,7 +6,7 @@
       </v-col>
     </v-row>
 
-    <v-row no-gutters>
+    <v-row no-gutters class="mb-2">
       <v-col cols="12" v-for="(sme, i) in hotSmes" :key="i">
         <HotSmeCard
           :sme="sme"
@@ -14,6 +14,17 @@
           :class="i % 2 ? 'mr-n1' : 'ml-n1'"
           :data-aos="i % 2 ? 'fade-left' : 'fade-right'"
         />
+      </v-col>
+
+      <v-col cols="12">
+        <v-card tile elevation="5" class="pb-3">
+          <v-card-title class="justify-center">更多熱門中小企?</v-card-title>
+          <v-card-actions class="justify-center">
+            <v-btn rounded color="primary" dark to="/view-all">
+              查看中小企目錄
+            </v-btn>
+          </v-card-actions>
+        </v-card>
       </v-col>
     </v-row>
 
