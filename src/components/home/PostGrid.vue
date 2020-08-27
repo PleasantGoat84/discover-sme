@@ -1,5 +1,10 @@
 <template>
   <v-card color="#FAF7B2" class="mx-2">
+    <v-btn outlined absolute top right small>
+      查看全部
+      <v-icon small>mdi-chevron-right</v-icon>
+    </v-btn>
+
     <v-card-title>
       <v-icon>mdi-chart-line</v-icon>
       <span class="ml-1">人氣分享</span>
