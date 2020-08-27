@@ -1,5 +1,9 @@
 <template>
   <v-card class="pb-1" color="#f2f1e2">
+    <v-btn icon absolute top right color="#445259">
+      <v-icon>mdi-map-search</v-icon>
+    </v-btn>
+
     <v-card-title>
       <v-img
         :src="getSmeIcon(sme.category)"
