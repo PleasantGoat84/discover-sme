@@ -20,7 +20,7 @@
         <v-card tile elevation="5" class="pb-3">
           <v-card-title class="justify-center">更多熱門中小企?</v-card-title>
           <v-card-actions class="justify-center">
-            <v-btn rounded color="primary" dark to="/view-all">
+            <v-btn rounded color="accent" dark to="/view-all">
               查看中小企目錄
             </v-btn>
           </v-card-actions>
@@ -35,7 +35,7 @@
     </v-row>
 
     <v-fab-transition>
-      <v-btn fab fixed dark bottom right large color="info" elevation="15">
+      <v-btn fab fixed dark bottom right large color="#0E376F" elevation="15">
         <v-icon>mdi-upload</v-icon>
       </v-btn>
     </v-fab-transition>
