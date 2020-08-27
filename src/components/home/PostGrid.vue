@@ -12,7 +12,7 @@
 
     <v-container fluid class="px-2">
       <v-row dense>
-        <v-col v-for="(post, i) in hotPosts" :key="i" cols="6">
+        <v-col v-for="(post, i) in hotPosts" :key="i" cols="6" class="mb-1">
           <router-link
             :to="{
               path: '/post',
@@ -20,6 +20,7 @@
                 id: post.id
               }
             }"
+            class="text-decoration-none"
           >
             <v-img
               :src="post.img.url"
@@ -29,15 +30,25 @@
               v-ripple
               transition="scale-transition"
             >
-              <span class="post-caption text-truncate">{{ post.name }}</span>
               <span class="post-popularity d-flex align-center">
-                <v-icon color="#ff80ab" small class="mr-1"
-                  >mdi-heart-outline</v-icon
-                >
+                <v-icon color="#ff80ab" small class="mr-1">
+                  mdi-heart-outline
+                </v-icon>
                 {{ post.popularity }}
               </span>
             </v-img>
+
+            <span class="d-block caption text-truncate info--text">
+              {{ post.name }}
+            </span>
           </router-link>
+        </v-col>
+
+        <v-col cols="12" class="text-center mt-5">
+          <v-btn color="accent">
+            撰寫我的分享
+            <v-icon class="ml-1">mdi-pencil</v-icon>
+          </v-btn>
         </v-col>
       </v-row>
     </v-container>
@@ -57,7 +68,14 @@ export default class PostGrid extends Vue {
     // do something with the api
     for (let i = 0; i < 12; i++) {
       this.hotPosts.push({
-        name: `${i} 號中小企`,
+        name: [
+          "甲甲甲飲食體驗!",
+          "乙乙實作心得",
+          "丙丙飲品好甜~",
+          "甲甲甲餐牌分享",
+          "乙乙手作材料準備",
+          "丙丙新品推薦"
+        ][Math.floor(Math.random() * 5.9)],
         id: i,
         popularity: Math.floor(Math.random() * (100 - i)),
         img: {
@@ -70,22 +88,14 @@ export default class PostGrid extends Vue {
 </script>
 
 <style lang="scss" scoped>
-.post-caption,
+// .post-caption,
 .post-popularity {
   position: absolute;
-  left: 0.5em;
+
   bottom: 0.5em;
-
-  max-width: 45%;
-
-  font-size: 3vw;
-}
-.post-popularity {
-  color: #ff80ab;
-
-  left: unset;
   right: 0.5em;
 
+  color: #ff80ab;
   font-size: 4vw;
 }
 </style>
