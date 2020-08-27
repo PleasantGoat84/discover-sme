@@ -28,3 +28,13 @@ export interface HotSme extends Sme {
   popularity: number;
   imgs: Array<{ url: string }>;
 }
+
+export interface Post {
+  name: string;
+  id: number;
+}
+
+export interface HotPost extends Post {
+  popularity: number;
+  img: { url: string };
+}

@@ -51,7 +51,7 @@ export default class HotSmeCard extends Vue {
   }
 
   created() {
-    // use some diguesting way to map hashed file path
+    // use some digusting way to map hashed file path
     // https://stackoverflow.com/questions/42118296/dynamically-import-images-from-a-directory-using-webpack
     const r = require.context("@/assets/sme-icon", false, /\.png$/);
     r.keys().forEach(key => {

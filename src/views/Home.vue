@@ -16,6 +16,18 @@
         />
       </v-col>
     </v-row>
+
+    <v-row no-gutters>
+      <v-col cols="12">
+        <PostGrid />
+      </v-col>
+    </v-row>
+
+    <v-fab-transition>
+      <v-btn fab fixed dark bottom right large color="info">
+        <v-icon>mdi-upload</v-icon>
+      </v-btn>
+    </v-fab-transition>
   </div>
 </template>
 
@@ -28,11 +40,13 @@ import * as AOS from "aos";
 
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
+import PostGrid from "@/components/home/PostGrid.vue";
 
 @Component({
   components: {
     EventCarousel,
-    HotSmeCard
+    HotSmeCard,
+    PostGrid
   }
 })
 export default class Home extends Vue {
