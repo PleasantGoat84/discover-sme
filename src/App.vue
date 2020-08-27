@@ -35,7 +35,7 @@ export default class DiscoverSme extends Vue {}
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #445259;
   background-color: #cad7d9;
 }
 </style>
