@@ -24,7 +24,7 @@
     </v-row>
 
     <v-fab-transition>
-      <v-btn fab fixed dark bottom right large color="info">
+      <v-btn fab fixed dark bottom right large color="info" elevation="15">
         <v-icon>mdi-upload</v-icon>
       </v-btn>
     </v-fab-transition>
