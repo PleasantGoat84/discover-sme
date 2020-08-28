@@ -32,9 +32,9 @@ export interface HotSme extends Sme {
 export interface Post {
   name: string;
   id: number;
+  img: Array<{ url: string }>;
 }
 
 export interface HotPost extends Post {
   popularity: number;
-  img: { url: string };
 }
