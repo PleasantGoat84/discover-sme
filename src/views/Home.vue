@@ -17,14 +17,32 @@
       </v-col>
 
       <v-col cols="12" class="my-4">
-        <v-card tile elevation="5" class="py-3">
+        <CardWithIcon
+          tile
+          icon="mdi-fire"
+          icon-color="orange"
+          icon-pos="right"
+          color="#FFFBFF"
+          class="py-4"
+          elevation="5"
+        >
+          <v-card-title class="justify-center">
+            更多<span class="red--text font-weight-bold">熱門</span>中小企?
+          </v-card-title>
+          <v-card-actions class="justify-center">
+            <v-btn rounded color="primary" dark to="/view-near">
+              查看中小企目錄
+            </v-btn>
+          </v-card-actions>
+        </CardWithIcon>
+        <!-- <v-card tile elevation="5" class="py-3">
           <v-card-title class="justify-center">更多熱門中小企?</v-card-title>
           <v-card-actions class="justify-center">
             <v-btn rounded color="accent" dark to="/view-all">
               查看中小企目錄
             </v-btn>
           </v-card-actions>
-        </v-card>
+        </v-card> -->
       </v-col>
     </v-row>
 
@@ -36,7 +54,25 @@
 
     <v-row no-gutters class="my-4">
       <v-col cols="12">
-        <NearBySmes />
+        <CardWithIcon
+          tile
+          icon="mdi-map-search"
+          icon-color="#A5A7B4"
+          color="info"
+          class="py-3"
+          dark
+        >
+          <v-card-title>附近有甚麼?</v-card-title>
+          <v-card-subtitle>
+            通過獲取目前定位檢索附近的人氣中小企
+          </v-card-subtitle>
+          <v-card-actions>
+            <v-spacer />
+            <v-btn outlined color="primary" dark to="/view-near">
+              探測附近中小企
+            </v-btn>
+          </v-card-actions>
+        </CardWithIcon>
       </v-col>
     </v-row>
 
@@ -58,14 +94,14 @@ import * as AOS from "aos";
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
 import PostGrid from "@/components/home/PostGrid.vue";
-import NearBySmes from "@/components/home/NearBySmes.vue";
+import CardWithIcon from "@/components/CardWithIcon.vue";
 
 @Component({
   components: {
     EventCarousel,
     HotSmeCard,
     PostGrid,
-    NearBySmes
+    CardWithIcon
   }
 })
 export default class Home extends Vue {
