@@ -29,6 +29,11 @@
           <v-card-title class="justify-center">
             更多<span class="red--text font-weight-bold">熱門</span>中小企?
           </v-card-title>
+
+          <v-card-subtitle class="text-center">
+            或者想要發現更多中小企?
+          </v-card-subtitle>
+
           <v-card-actions class="justify-center">
             <v-btn rounded color="primary" dark to="/view-near">
               查看中小企目錄
@@ -57,7 +62,7 @@
         <CardWithIcon
           tile
           icon="mdi-map-search"
-          icon-color="#A5A7B4"
+          icon-color="white"
           color="info"
           class="py-3"
           dark
@@ -68,8 +73,9 @@
           </v-card-subtitle>
           <v-card-actions>
             <v-spacer />
-            <v-btn outlined color="primary" dark to="/view-near">
+            <v-btn outlined color="white" dark to="/view-near">
               探測附近中小企
+              <v-icon class="ml-1">mdi-radar</v-icon>
             </v-btn>
           </v-card-actions>
         </CardWithIcon>
