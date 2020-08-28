@@ -34,6 +34,12 @@
       </v-col>
     </v-row>
 
+    <v-row no-gutters class="my-4">
+      <v-col cols="12">
+        <NearBySmes />
+      </v-col>
+    </v-row>
+
     <v-fab-transition>
       <v-btn fab fixed dark bottom right large color="#0E376F" elevation="15">
         <v-icon>mdi-upload</v-icon>
@@ -52,12 +58,14 @@ import * as AOS from "aos";
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
 import PostGrid from "@/components/home/PostGrid.vue";
+import NearBySmes from "@/components/home/NearBySmes.vue";
 
 @Component({
   components: {
     EventCarousel,
     HotSmeCard,
-    PostGrid
+    PostGrid,
+    NearBySmes
   }
 })
 export default class Home extends Vue {
