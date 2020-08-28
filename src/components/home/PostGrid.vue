@@ -30,7 +30,7 @@
               v-ripple
               transition="scale-transition"
             >
-              <span class="post-popularity d-flex align-center">
+              <span class="post-popularity d-flex align-center caption">
                 <v-icon color="#ff80ab" small class="mr-1">
                   mdi-heart-outline
                 </v-icon>
