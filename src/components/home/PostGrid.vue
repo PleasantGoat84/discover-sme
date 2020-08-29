@@ -25,17 +25,16 @@
             <v-img
               :src="post.img[0].url"
               class="rounded elevation-3"
-              gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65)"
               height="25vw"
               v-ripple
               transition="scale-transition"
             >
-              <span class="post-popularity d-flex align-center caption">
+              <v-btn x-small tile color="lite" class="post-popularity">
                 <v-icon color="#ff80ab" small class="mr-1">
-                  mdi-heart-outline
+                  {{ post.liked ? "mdi-heart" : "mdi-heart-outline" }}
                 </v-icon>
                 {{ post.popularity }}
-              </span>
+              </v-btn>
             </v-img>
 
             <span class="d-block caption text-truncate info--text">
@@ -58,13 +57,13 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { HotPost } from "@/types.ts";
+import { Post } from "@/types.ts";
 
 import { fakeApiHotPosts } from "@/fake-api.ts";
 
 @Component
 export default class PostGrid extends Vue {
-  private hotPosts: Array<HotPost> = [];
+  private hotPosts: Array<Post> = [];
 
   created() {
     // do something with the api
@@ -78,10 +77,10 @@ export default class PostGrid extends Vue {
 .post-popularity {
   position: absolute;
 
-  bottom: 0.5em;
-  right: 0.5em;
+  bottom: 0;
+  right: 0;
 
   color: #ff80ab;
-  font-size: 4vw;
+  border-top-left-radius: 4px;
 }
 </style>

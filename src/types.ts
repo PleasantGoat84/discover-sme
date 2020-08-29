@@ -14,12 +14,18 @@ export enum SmeCategory {
   Fashion,
   Musical,
   Medical,
+  Education,
   Other
+}
+
+export interface Image {
+  url: string;
 }
 
 export interface User {
   id: number;
   name: string;
+  avatar: Image;
 }
 
 export interface Sme {
@@ -31,17 +37,16 @@ export interface Sme {
 export interface HotSme extends Sme {
   rank: number;
   popularity: number;
-  imgs: Array<{ url: string }>;
+  imgs: Array<Image>;
 }
 
 export interface Post {
   name: string;
   id: number;
   author: User;
-  content: string;
-  img: Array<{ url: string }>;
-}
 
-export interface HotPost extends Post {
+  content: string;
+  img: Array<Image>;
   popularity: number;
+  liked: boolean;
 }

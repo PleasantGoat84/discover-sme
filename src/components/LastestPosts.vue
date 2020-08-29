@@ -2,12 +2,15 @@
   <v-card color="#ECE0D6" tile>
     <v-container fluid>
       <v-row>
-        <v-col cols="12" v-for="(post, i) in posts" :key="i">
-          <v-card color="bg">
+        <v-col cols="12" v-for="(post, i) in latestPosts" :key="i">
+          <v-card color="lite">
             <v-list-item>
-              <v-list-item-avatar color="grey" />
+              <v-list-item-avatar color="info">
+                <v-img :src="post.author.avatar.url" contain />
+              </v-list-item-avatar>
+
               <v-list-item-content>
-                <v-list-item-title class="headline info--text">
+                <v-list-item-title class="info--text">
                   {{ post.name }}
                 </v-list-item-title>
 
@@ -20,7 +23,7 @@
             <v-carousel
               hide-delimiter-background
               :show-arrows="false"
-              height="30vh"
+              height="55vw"
             >
               <v-carousel-item
                 v-for="(img, j) in post.img"
@@ -30,17 +33,16 @@
               />
             </v-carousel>
 
-            <v-card-text>
-              {{ post.content }}
-            </v-card-text>
+            <v-card-text v-text="post.content" style="white-space: pre-line;" />
 
             <v-card-actions>
               <v-btn text color="primary">
                 查看中小企
               </v-btn>
               <v-spacer></v-spacer>
-              <v-btn icon>
+              <v-btn icon :color="post.liked ? 'pink' : ''">
                 <v-icon>mdi-heart</v-icon>
+                <span class="ml-1">{{ post.popularity }}</span>
               </v-btn>
               <v-btn icon>
                 <v-icon>mdi-share-variant</v-icon>
@@ -63,9 +65,23 @@ import { fakeApiPosts } from "@/fake-api";
 export default class LastestPosts extends Vue {
   private posts: Array<Post> = [];
 
+  get latestPosts(): Array<Post> {
+    return this.posts.slice(0, 5);
+  }
+
   created() {
     // do something with the api
     this.posts = fakeApiPosts();
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.v-carousel {
+  background-color: #f7edb3;
+}
+
+.v-list-item__title {
+  white-space: normal;
+}
+</style>
