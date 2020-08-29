@@ -160,10 +160,37 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 84,
       liked: true
+    },
+    {
+      name: "俊秀圍文創街需支援活化",
+      id: 1,
+      img: [
+        {
+          url:
+            "https://cinlectureroom.com/wp-content/uploads/2017/06/pshipp-1280x960.jpg"
+        },
+        {
+          url: "https://cinlectureroom.com/wp-content/uploads/2017/06/SHIPD.jpg"
+        },
+        {
+          url: "https://cinlectureroom.com/wp-content/uploads/2017/06/SHIPE.jpg"
+        }
+      ],
+      content:
+        "澳門的新爽爽豬肉丸美食由潘先生夫婦經營，除了豬肉丸外，更有各款新鮮無添加丸類可供顧客選擇，招牌丸類包括墨魚丸、牛丸、白魚丸、鯪魚丸等等獲得街坊和各地食客的好評。開業接近二十年的街坊小店，由以前主要客源是本地街坊，到現在各地遊客慕名而來，生意蒸蒸日上，是甚麼促使潘先生夫婦重新設計該餐廳品牌，他們又想新爽爽豬肉丸美食在未來有甚麼新突破呢？\n星期六下午三時，接近下午茶時份，位於聖心中學對面的新爽爽茶餐廳依舊繁忙。儘管週末少了學生的光顧，擁有大概50多個座位的新爽爽仍一位難求，許多街坊和遊客都要「搭枱」享用美食。",
+      author: {
+        name: "ZA誌",
+        id: 84,
+        avatar: {
+          url: "http://zamag.net/wp-content/uploads/ZAMAG-Logo_2016.png"
+        }
+      },
+      popularity: 65,
+      liked: false
     }
   ];
 }
 
 export function fakeApiHotPosts(): Array<Post> {
-  return fakeApiPosts().sort((a, b) => a.popularity - b.popularity);
+  return fakeApiPosts().sort((a, b) => b.popularity - a.popularity);
 }
