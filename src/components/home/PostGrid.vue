@@ -1,12 +1,12 @@
 <template>
-  <v-card color="#FAF7B2" class="mx-2">
-    <v-btn outlined absolute top right small>
+  <v-card class="mx-2" color="#FDFB8F">
+    <v-btn absolute top right small dark color="info">
       查看全部
       <v-icon small>mdi-chevron-right</v-icon>
     </v-btn>
 
     <v-card-title>
-      <v-icon>mdi-chart-line</v-icon>
+      <v-icon color="primary">mdi-chart-line</v-icon>
       <span class="ml-1">人氣分享</span>
     </v-card-title>
 
@@ -24,7 +24,7 @@
           >
             <v-img
               :src="post.img[0].url"
-              class="white--text rounded elevation-3"
+              class="rounded elevation-3"
               gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65)"
               height="25vw"
               v-ripple
@@ -45,7 +45,7 @@
         </v-col>
 
         <v-col cols="12" class="text-center mt-5">
-          <v-btn color="accent">
+          <v-btn color="primary">
             撰寫我的分享
             <v-icon class="ml-1">mdi-pencil</v-icon>
           </v-btn>

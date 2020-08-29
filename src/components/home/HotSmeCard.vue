@@ -1,5 +1,5 @@
 <template>
-  <v-card class="pb-1" color="#f2f1e2">
+  <v-card class="pb-1" color="bg">
     <v-btn icon absolute top right color="#445259">
       <v-icon>mdi-map-search</v-icon>
     </v-btn>

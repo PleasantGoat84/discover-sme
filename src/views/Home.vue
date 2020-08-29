@@ -20,14 +20,14 @@
         <CardWithIcon
           tile
           icon="mdi-fire"
-          icon-color="orange"
+          icon-color="warning"
           icon-pos="right"
-          color="#FFFBFF"
+          color="white"
           class="py-4"
           elevation="5"
         >
           <v-card-title class="justify-center">
-            更多<span class="red--text font-weight-bold">熱門</span>中小企?
+            更多<span class="error--text font-weight-bold">熱門</span>中小企?
           </v-card-title>
 
           <v-card-subtitle class="text-center">
@@ -89,7 +89,7 @@
     </v-row>
 
     <v-fab-transition>
-      <v-btn fab fixed dark bottom right large color="#0E376F" elevation="15">
+      <v-btn fab fixed dark bottom right large color="accent" elevation="15">
         <v-icon>mdi-upload</v-icon>
       </v-btn>
     </v-fab-transition>
@@ -99,7 +99,7 @@
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { HotSme, SmeCategory } from "@/types.ts";
+import { HotSme } from "@/types.ts";
 
 import { fakeApiHotSmes } from "@/fake-api.ts";
 
