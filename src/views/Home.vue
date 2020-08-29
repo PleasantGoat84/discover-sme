@@ -82,6 +82,12 @@
       </v-col>
     </v-row>
 
+    <v-row no-gutters>
+      <v-col cols="12">
+        <LastestPosts />
+      </v-col>
+    </v-row>
+
     <v-fab-transition>
       <v-btn fab fixed dark bottom right large color="#0E376F" elevation="15">
         <v-icon>mdi-upload</v-icon>
@@ -95,19 +101,23 @@ import { Component, Vue } from "vue-property-decorator";
 
 import { HotSme, SmeCategory } from "@/types.ts";
 
+import { fakeApiHotSmes } from "@/fake-api.ts";
+
 import * as AOS from "aos";
 
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
 import PostGrid from "@/components/home/PostGrid.vue";
 import CardWithIcon from "@/components/CardWithIcon.vue";
+import LastestPosts from "@/components/LastestPosts.vue";
 
 @Component({
   components: {
     EventCarousel,
     HotSmeCard,
     PostGrid,
-    CardWithIcon
+    CardWithIcon,
+    LastestPosts
   }
 })
 export default class Home extends Vue {
@@ -115,53 +125,7 @@ export default class Home extends Vue {
 
   created() {
     // do something with the api
-    this.hotSmes = [
-      {
-        name: "甲甲甲咖啡室",
-        id: 567,
-        rank: 1,
-        popularity: 9487,
-        imgs: [
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/500x200" },
-          { url: "http://via.placeholder.com/200x300" },
-          { url: "http://via.placeholder.com/500x300" },
-          { url: "http://via.placeholder.com/400x200" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" }
-        ],
-        category: SmeCategory.Cafe
-      },
-      {
-        name: "乙乙工作坊",
-        id: 365,
-        rank: 2,
-        popularity: 8547,
-        imgs: [
-          { url: "http://via.placeholder.com/1080x960" },
-          { url: "http://via.placeholder.com/360x360" },
-          { url: "http://via.placeholder.com/500x600" },
-          { url: "http://via.placeholder.com/150x960" },
-          { url: "http://via.placeholder.com/400x300" }
-        ],
-        category: SmeCategory.Other
-      },
-      {
-        name: "丙丙飲品",
-        id: 848,
-        rank: 3,
-        popularity: 6253,
-        imgs: [
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" },
-          { url: "http://via.placeholder.com/400x300" }
-        ],
-        category: SmeCategory.Drink
-      }
-    ];
+    this.hotSmes = fakeApiHotSmes();
   }
 
   mounted() {

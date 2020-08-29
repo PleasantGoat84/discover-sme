@@ -23,7 +23,7 @@
             class="text-decoration-none"
           >
             <v-img
-              :src="post.img.url"
+              :src="post.img[0].url"
               class="white--text rounded elevation-3"
               gradient="to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.65)"
               height="25vw"
@@ -60,29 +60,15 @@ import { Component, Vue } from "vue-property-decorator";
 
 import { HotPost } from "@/types.ts";
 
+import { fakeApiHotPosts } from "@/fake-api.ts";
+
 @Component
 export default class PostGrid extends Vue {
   private hotPosts: Array<HotPost> = [];
 
   created() {
     // do something with the api
-    for (let i = 0; i < 12; i++) {
-      this.hotPosts.push({
-        name: [
-          "甲甲甲飲食體驗!",
-          "乙乙實作心得",
-          "丙丙飲品好甜~",
-          "甲甲甲餐牌分享",
-          "乙乙手作材料準備",
-          "丙丙新品推薦"
-        ][Math.floor(Math.random() * 5.9)],
-        id: i,
-        popularity: Math.floor(Math.random() * (100 - i)),
-        img: {
-          url: "http://via.placeholder.com/1600x900"
-        }
-      });
-    }
+    this.hotPosts = fakeApiHotPosts();
   }
 }
 </script>

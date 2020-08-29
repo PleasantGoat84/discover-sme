@@ -17,6 +17,11 @@ export enum SmeCategory {
   Other
 }
 
+export interface User {
+  id: number;
+  name: string;
+}
+
 export interface Sme {
   name: string;
   id: number;
@@ -32,6 +37,8 @@ export interface HotSme extends Sme {
 export interface Post {
   name: string;
   id: number;
+  author: User;
+  content: string;
   img: Array<{ url: string }>;
 }
 

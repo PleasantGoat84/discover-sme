@@ -15,17 +15,15 @@ import { Component, Vue } from "vue-property-decorator";
 
 import { SmeEvent } from "@/types.ts";
 
+import { fakeApiEventCarousel } from "@/fake-api.ts";
+
 @Component
 export default class EventCarousel extends Vue {
   private events: Array<SmeEvent> = [];
 
   created() {
     // do something with the api
-    for (let i = 1; i <= 10; i++)
-      this.events.push({
-        carouselImg: { url: "http://via.placeholder.com/400x200" },
-        id: i
-      });
+    this.events = fakeApiEventCarousel();
   }
 }
 </script>
