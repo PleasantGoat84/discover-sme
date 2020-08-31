@@ -25,7 +25,7 @@ export interface Image {
 export interface User {
   id: number;
   name: string;
-  avatar: Image;
+  avatar?: Image;
 }
 
 export interface Sme {
@@ -44,6 +44,7 @@ export interface Post {
   name: string;
   id: number;
   author: User;
+  postDate: string;
 
   content: string;
   img: Array<Image>;
