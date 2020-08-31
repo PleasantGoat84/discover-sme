@@ -6,7 +6,14 @@
           <v-card color="lite">
             <v-list-item>
               <v-list-item-avatar color="info">
-                <v-img :src="post.author.avatar.url" contain />
+                <v-img
+                  :src="
+                    post.author.avatar
+                      ? post.author.avatar.url
+                      : require('@/assets/default-avatar.png')
+                  "
+                  contain
+                />
               </v-list-item-avatar>
 
               <v-list-item-content>
@@ -16,6 +23,7 @@
 
                 <v-list-item-subtitle>
                   {{ post.author.name }}
+                  <span class="text--disabled"> · {{ post.postDate }}</span>
                 </v-list-item-subtitle>
               </v-list-item-content>
             </v-list-item>
@@ -24,6 +32,7 @@
               hide-delimiter-background
               :show-arrows="false"
               height="55vw"
+              :hide-delimiters="post.img.length <= 1"
             >
               <v-carousel-item
                 v-for="(img, j) in post.img"
