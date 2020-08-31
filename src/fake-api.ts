@@ -137,8 +137,30 @@ export function fakeApiEventCarousel(): Array<SmeEvent> {
 export function fakeApiPosts(): Array<Post> {
   return [
     {
+      name: "新爽爽招版米線",
+      id: 7,
+      img: [
+        {
+          url:
+            "https://fastly.4sqi.net/img/general/600x600/31703202_yjVQEPb3UiI4oNXpiioPkv67RIg_N6CbIfKH0h4nfEA.jpg"
+        }
+      ],
+      content: "雅廉訪美食——新爽爽豬肉丸, 其中最為招牌的就是肉丸米鳥!",
+      author: {
+        name: "Terry C.C.I.",
+        id: 8487,
+        avatar: {
+          url:
+            "https://cdn.discordapp.com/avatars/578869529783042048/a02c08a2f068822669d05495f682a007.png?size=128"
+        }
+      },
+      popularity: 5,
+      liked: true,
+      postDate: "2020/08/21"
+    },
+    {
       name: "新爽爽豬肉丸——保存傳統滋味  讓豬肉丸「彈」出澳門",
-      id: 1,
+      id: 6,
       img: [
         {
           url:
@@ -159,11 +181,12 @@ export function fakeApiPosts(): Array<Post> {
         }
       },
       popularity: 84,
-      liked: true
+      liked: true,
+      postDate: "2020/08/23"
     },
     {
       name: "俊秀圍文創街需支援活化",
-      id: 1,
+      id: 5,
       img: [
         {
           url:
@@ -187,11 +210,12 @@ export function fakeApiPosts(): Array<Post> {
         }
       },
       popularity: 65,
-      liked: false
+      liked: false,
+      postDate: "2020/08/22"
     },
     {
       name: "【三口八胃實驗室】茶里茶里",
-      id: 1,
+      id: 4,
       img: [
         {
           url:
@@ -217,11 +241,70 @@ export function fakeApiPosts(): Array<Post> {
         }
       },
       popularity: 48,
-      liked: true
+      liked: true,
+      postDate: "2020/08/21"
+    },
+    {
+      name: "皮革私製 零售開班兼備",
+      id: 2,
+      img: [
+        {
+          url:
+            "http://www.smes-macao.com/upload/thumb_src/600_400/1525502622.JPG"
+        }
+      ],
+      content:
+        "近年不少青年人喜歡自己動手創作心水皮革用品，送禮實用有心思，很多皮革興趣班應運而生。Craftsman Ship匠舫是一間皮革工作坊，主營皮革用品的私人訂製，風格簡約。業務包括現貨銷售及開班教學，店舖更銷售手錶及文創產品。今年四月正式營業，兩人投資四十萬元，預計一年半能回本。負責人期望在保留傳統工藝的同時加入新元素，把品牌推廣至其他地方。",
+      author: {
+        name: "editor",
+        id: 9494
+      },
+      popularity: 17,
+      liked: false,
+      postDate: "2020/06/01"
+    },
+    {
+      name: "天馬策劃簡介",
+      id: 3,
+      img: [
+        {
+          url:
+            "https://lh3.ggpht.com/p/AF1QipO0M6egm9yIrKXHZ8_AF65RNyq-ixqovt91eRm9=s1024"
+        }
+      ],
+      content: "人氣分享",
+      author: {
+        name: "人氣分享人",
+        id: 33
+      },
+      popularity: 23567,
+      liked: false,
+      postDate: "2020/06/01"
+    },
+
+    {
+      name: "澳門創意產業的極致創意",
+      id: 1,
+      img: [
+        {
+          url:
+            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/113999567_3002065353175619_7710923728805403943_o.jpg?_nc_cat=106&_nc_sid=730e14&_nc_ohc=_xLtthHMsasAX91xapB&_nc_ht=scontent-hkt1-1.xx&oh=886d232dfe147aef2bff927121bdfab7&oe=5F720C54"
+        }
+      ],
+      content: "澳門創意產業科學館活動設計",
+      author: {
+        name: "人氣分享人",
+        id: 33
+      },
+      popularity: 52,
+      liked: false,
+      postDate: "2020/05/01"
     }
   ];
 }
 
 export function fakeApiHotPosts(): Array<Post> {
-  return fakeApiPosts().sort((a, b) => b.popularity - a.popularity);
+  return fakeApiPosts()
+    .sort((a, b) => b.popularity - a.popularity)
+    .slice(0, 6);
 }
