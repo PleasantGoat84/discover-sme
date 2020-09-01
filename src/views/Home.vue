@@ -81,7 +81,17 @@
     </v-row>
 
     <v-fab-transition>
-      <v-btn fab fixed dark bottom right large color="accent" elevation="15">
+      <v-btn
+        fab
+        fixed
+        dark
+        bottom
+        right
+        large
+        color="accent"
+        elevation="15"
+        to="/upload"
+      >
         <v-icon>mdi-upload</v-icon>
       </v-btn>
     </v-fab-transition>
