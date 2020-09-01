@@ -16,7 +16,7 @@
       </v-container>
     </v-main>
 
-    <v-footer app absolute>
+    <v-footer app absolute color="primary" dark>
       &copy; TerryCCI
     </v-footer>
   </v-app>
