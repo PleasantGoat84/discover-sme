@@ -3,16 +3,21 @@
     <TopAppBar />
 
     <!-- Sizes your content based upon application components -->
-    <v-main>
+    <v-main class="pb-5">
       <!-- Provides the application the proper gutter -->
       <v-container fluid class="px-0 pt-14">
-        <!-- If using vue-router -->
         <router-view></router-view>
+
+        <v-row no-gutters>
+          <v-col cols="12">
+            <FooterCard />
+          </v-col>
+        </v-row>
       </v-container>
     </v-main>
 
-    <v-footer app>
-      <!-- -->
+    <v-footer app absolute>
+      &copy; TerryCCI
     </v-footer>
   </v-app>
 </template>
@@ -21,10 +26,12 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import TopAppBar from "@/components/TopAppBar.vue";
+import FooterCard from "@/components/FooterCard.vue";
 
 @Component({
   components: {
-    TopAppBar
+    TopAppBar,
+    FooterCard
   }
 })
 export default class DiscoverSme extends Vue {}
