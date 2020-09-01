@@ -2,13 +2,18 @@
   <v-card tile>
     <v-list color="secondary" dark class="py-3">
       <v-list-item-group>
-        <v-list-item v-for="(link, i) in links" :key="i" class="pl-5">
-          <v-list-item-content>
-            <router-link :to="link.to" class="white--text">
+        <router-link
+          v-for="(link, i) in links"
+          :key="i"
+          :to="link.to"
+          class="white--text"
+        >
+          <v-list-item class="pl-5">
+            <v-list-item-content>
               <v-list-item-title>{{ link.text }}</v-list-item-title>
-            </router-link>
-          </v-list-item-content>
-        </v-list-item>
+            </v-list-item-content>
+          </v-list-item>
+        </router-link>
       </v-list-item-group>
     </v-list>
   </v-card>
