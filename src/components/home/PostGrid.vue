@@ -1,6 +1,6 @@
 <template>
   <v-card class="mx-2" color="#FDFB8F">
-    <v-btn absolute top right small dark color="info">
+    <v-btn absolute top right small dark color="info" to="/posts">
       查看全部
       <v-icon small>mdi-chevron-right</v-icon>
     </v-btn>
@@ -44,7 +44,7 @@
         </v-col>
 
         <v-col cols="12" class="text-center mt-5">
-          <v-btn color="primary">
+          <v-btn color="primary" to="/upload">
             撰寫我的分享
             <v-icon class="ml-1">mdi-pencil</v-icon>
           </v-btn>

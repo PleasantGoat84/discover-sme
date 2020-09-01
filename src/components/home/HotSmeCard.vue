@@ -1,28 +1,38 @@
 <template>
   <v-card class="pb-1" color="lite">
-    <v-btn icon absolute top right color="info">
+    <v-btn
+      icon
+      absolute
+      top
+      right
+      color="info"
+      :to="{ path: '/locate', query: { id: sme.id } }"
+    >
       <v-icon>mdi-map-search</v-icon>
     </v-btn>
 
-    <v-card-title>
-      <v-img
-        :src="getSmeIcon(sme.category)"
-        width="1.5em"
-        class="shrink mr-2"
-      />
+    <router-link :to="{ path: '/info', query: { id: sme.id } }">
+      <v-card-title>
+        <v-img
+          :src="getSmeIcon(sme.category)"
+          width="1.5em"
+          class="shrink mr-2"
+        />
 
-      {{ sme.name }}
-    </v-card-title>
-    <v-card-subtitle class="d-flex align-center">
-      熱門中小企 #{{ sme.rank }}
+        {{ sme.name }}
+      </v-card-title>
 
-      <v-img
-        src="@/assets/fire.png"
-        width="1.25em"
-        class="mt-n1 ml-1 shrink"
-        v-if="sme.rank <= 3"
-      />
-    </v-card-subtitle>
+      <v-card-subtitle class="d-flex align-center">
+        熱門中小企 #{{ sme.rank }}
+
+        <v-img
+          src="@/assets/fire.png"
+          width="1.25em"
+          class="mt-n1 ml-1 shrink"
+          v-if="sme.rank <= 3"
+        />
+      </v-card-subtitle>
+    </router-link>
 
     <div class="d-flex hot-sme-imgs">
       <img

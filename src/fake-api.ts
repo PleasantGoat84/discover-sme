@@ -156,7 +156,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 5,
       liked: true,
-      postDate: "2020/08/21"
+      postDate: "2020/08/21",
+      sme: {
+        name: "新爽爽豬肉丸",
+        id: 2,
+        category: SmeCategory.Cafe
+      }
     },
     {
       name: "新爽爽豬肉丸——保存傳統滋味  讓豬肉丸「彈」出澳門",
@@ -182,7 +187,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 84,
       liked: true,
-      postDate: "2020/08/23"
+      postDate: "2020/08/23",
+      sme: {
+        name: "新爽爽豬肉丸",
+        id: 2,
+        category: SmeCategory.Cafe
+      }
     },
     {
       name: "俊秀圍文創街需支援活化",
@@ -211,7 +221,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 65,
       liked: false,
-      postDate: "2020/08/22"
+      postDate: "2020/08/22",
+      sme: {
+        name: "CraftsmanShip 匠舫",
+        id: 745,
+        category: SmeCategory.Other
+      }
     },
     {
       name: "【三口八胃實驗室】茶里茶里",
@@ -242,7 +257,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 48,
       liked: true,
-      postDate: "2020/08/21"
+      postDate: "2020/08/21",
+      sme: {
+        name: "茶里",
+        id: 521,
+        category: SmeCategory.Drink
+      }
     },
     {
       name: "皮革私製 零售開班兼備",
@@ -261,7 +281,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 17,
       liked: false,
-      postDate: "2020/06/01"
+      postDate: "2020/06/01",
+      sme: {
+        name: "CraftsmanShip 匠舫",
+        id: 745,
+        category: SmeCategory.Other
+      }
     },
     {
       name: "天馬策劃簡介",
@@ -279,7 +304,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 23567,
       liked: false,
-      postDate: "2020/06/01"
+      postDate: "2020/06/01",
+      sme: {
+        name: "天馬策劃有限公司",
+        id: 9999,
+        category: SmeCategory.Other
+      }
     },
 
     {
@@ -298,7 +328,12 @@ export function fakeApiPosts(): Array<Post> {
       },
       popularity: 52,
       liked: false,
-      postDate: "2020/05/01"
+      postDate: "2020/05/01",
+      sme: {
+        name: "澳門創意產業有限公司",
+        id: 99991,
+        category: SmeCategory.Other
+      }
     }
   ];
 }

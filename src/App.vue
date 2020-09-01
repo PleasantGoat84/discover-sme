@@ -38,4 +38,7 @@ export default class DiscoverSme extends Vue {}
   color: #445259;
   background-color: #a0cef5;
 }
+a {
+  text-decoration: none;
+}
 </style>

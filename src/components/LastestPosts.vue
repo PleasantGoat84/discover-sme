@@ -5,16 +5,20 @@
         <v-col cols="12" v-for="(post, i) in latestPosts" :key="i">
           <v-card color="lite">
             <v-list-item>
-              <v-list-item-avatar color="info">
-                <v-img
-                  :src="
-                    post.author.avatar
-                      ? post.author.avatar.url
-                      : require('@/assets/default-avatar.png')
-                  "
-                  contain
-                />
-              </v-list-item-avatar>
+              <router-link
+                :to="{ path: '/user', query: { id: post.author.id } }"
+              >
+                <v-list-item-avatar color="info">
+                  <v-img
+                    :src="
+                      post.author.avatar
+                        ? post.author.avatar.url
+                        : require('@/assets/default-avatar.png')
+                    "
+                    contain
+                  />
+                </v-list-item-avatar>
+              </router-link>
 
               <v-list-item-content>
                 <v-list-item-title class="info--text">
@@ -45,15 +49,19 @@
             <v-card-text v-text="post.content" style="white-space: pre-line;" />
 
             <v-card-actions>
-              <v-btn text color="primary">
+              <v-btn
+                text
+                color="primary"
+                :to="{ path: '/view', query: { id: post.sme.id } }"
+              >
                 查看中小企
               </v-btn>
               <v-spacer></v-spacer>
-              <v-btn icon :color="post.liked ? 'pink' : ''">
+              <v-btn icon :color="post.liked ? 'pink' : ''" @click="like(post)">
                 <v-icon>mdi-heart</v-icon>
                 <span class="ml-1">{{ post.popularity }}</span>
               </v-btn>
-              <v-btn icon>
+              <v-btn icon @click="share(post)">
                 <v-icon>mdi-share-variant</v-icon>
               </v-btn>
             </v-card-actions>
@@ -76,6 +84,16 @@ export default class LastestPosts extends Vue {
 
   get latestPosts(): Array<Post> {
     return this.posts.slice(0, 5);
+  }
+
+  private like(post: Post): void {
+    console.debug(`toggle like of post number ${post.id}`);
+    post.popularity += post.liked ? -1 : 1;
+    post.liked = !post.liked;
+  }
+
+  private share(post: Post): void {
+    console.debug(`share post number ${post.id}`);
   }
 
   created() {

@@ -35,19 +35,11 @@
           </v-card-subtitle>
 
           <v-card-actions class="justify-center">
-            <v-btn rounded color="primary" dark to="/view-near">
+            <v-btn rounded color="primary" dark to="/view-all">
               查看中小企目錄
             </v-btn>
           </v-card-actions>
         </CardWithIcon>
-        <!-- <v-card tile elevation="5" class="py-3">
-          <v-card-title class="justify-center">更多熱門中小企?</v-card-title>
-          <v-card-actions class="justify-center">
-            <v-btn rounded color="accent" dark to="/view-all">
-              查看中小企目錄
-            </v-btn>
-          </v-card-actions>
-        </v-card> -->
       </v-col>
     </v-row>
 

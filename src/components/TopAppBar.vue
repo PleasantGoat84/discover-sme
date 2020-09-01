@@ -24,7 +24,7 @@
 
       <v-divider vertical class="mx-1" />
 
-      <v-btn icon>
+      <v-btn icon to="/upload">
         <v-icon>mdi-upload</v-icon>
       </v-btn>
     </v-app-bar>

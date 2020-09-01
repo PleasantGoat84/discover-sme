@@ -50,4 +50,5 @@ export interface Post {
   img: Array<Image>;
   popularity: number;
   liked: boolean;
+  sme: Sme;
 }
