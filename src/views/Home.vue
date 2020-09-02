@@ -12,7 +12,6 @@
           :sme="sme"
           class="ma-2"
           :class="i % 2 ? 'mr-n1' : 'ml-n1'"
-          :data-aos="i % 2 ? 'fade-left' : 'fade-right'"
         />
       </v-col>
 
@@ -105,8 +104,6 @@ import { HotSme } from "@/types.ts";
 
 import { fakeApiHotSmes } from "@/fake-api.ts";
 
-import * as AOS from "aos";
-
 import EventCarousel from "@/components/home/EventCarousel.vue";
 import HotSmeCard from "@/components/home/HotSmeCard.vue";
 import PostGrid from "@/components/home/PostGrid.vue";
@@ -128,10 +125,6 @@ export default class Home extends Vue {
   created() {
     // do something with the api
     this.hotSmes = fakeApiHotSmes();
-  }
-
-  mounted() {
-    AOS.init();
   }
 }
 </script>
