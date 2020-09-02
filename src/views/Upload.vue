@@ -16,6 +16,20 @@
             <v-row no-gutters>
               <v-col v-for="(img, i) in imgs" :key="i" cols="4" class="pa-1">
                 <v-card>
+                  <v-btn
+                    fab
+                    dark
+                    x-small
+                    absolute
+                    right
+                    top
+                    color="error"
+                    class="mt-3 mr-n5"
+                    @click="deleteImg(i)"
+                  >
+                    <v-icon dark>mdi-delete-outline</v-icon>
+                  </v-btn>
+
                   <v-img :src="img" aspect-ratio="1" />
                 </v-card>
               </v-col>
@@ -24,6 +38,7 @@
                 cols="4"
                 v-if="imgs.length < maxImg"
                 class="d-flex align-center justify-center"
+                style="min-height: 30vw;"
               >
                 <v-btn
                   tile
@@ -157,6 +172,11 @@ export default class Upload extends Vue {
     this.sheet = false;
 
     return;
+  }
+
+  private deleteImg(idx: number): void {
+    // debugger;
+    this.imgs.splice(idx, 1);
   }
 }
 </script>
