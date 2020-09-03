@@ -42,7 +42,9 @@
               </template>
             </v-text-field>
 
-            <ImgGrid class="mt-5" ref="imgGrid" />
+            <v-divider class="my-8" />
+
+            <ImgGrid ref="imgGrid" />
           </v-form>
         </v-card-text>
 
