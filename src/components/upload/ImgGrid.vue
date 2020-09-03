@@ -1,6 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
-    <v-row no-gutters>
+    <h2>中小企照片</h2>
+    <v-row no-gutters class="mt-3">
       <v-col v-for="(img, i) in imgs" :key="i" cols="4" class="pa-1">
         <v-card>
           <v-btn
@@ -93,7 +94,7 @@ export default class ImgGrid extends Vue {
     }
   ];
 
-  isValid(): boolean {
+  get isValid(): boolean {
     return this.imgs.length > 0;
   }
 
