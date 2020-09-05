@@ -63,12 +63,15 @@ interface Sme {
   };
 }
 
+function validator(this: UploadForm): void {
+  this.$parent.$parent.isValid = this.getFormValid() && this.getImgValid();
+}
+
 @Component({
   components: { ImgGrid },
   watch: {
-    isValid: function(this: UploadForm, n: boolean): void {
-      this.$parent.$parent.isValid = n;
-    }
+    isFormValid: validator,
+    isImgValid: validator
   }
 })
 export default class UploadForm extends Vue {
@@ -87,6 +90,15 @@ export default class UploadForm extends Vue {
 
   private isValid = false;
   private isFormValid = false;
+  private isImgValid = false;
+
+  getFormValid(): boolean {
+    return this.isFormValid;
+  }
+
+  getImgValid(): boolean {
+    return this.isImgValid;
+  }
 
   getTitle(): string {
     return this.title;
@@ -105,7 +117,7 @@ export default class UploadForm extends Vue {
   }
 
   private checkValid(): void {
-    this.isValid = this.isFormValid && this.$refs.imgGrid.isValid;
+    this.isImgValid = this.$refs.imgGrid.isValid;
   }
 
   // get the current position
