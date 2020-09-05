@@ -34,8 +34,8 @@
         分享發佈成功
 
         <template v-slot:action="{ attrs }">
-          <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
-            Close
+          <v-btn color="primary" icon v-bind="attrs" @click="snackbar = false">
+            <v-icon>mdi-close</v-icon>
           </v-btn>
         </template>
       </v-snackbar>
@@ -112,6 +112,13 @@ export default class Upload extends Vue {
     //   method: "POST",
     //   body: formData
     // }).then(res => console.log(res));
+
+    this.overlay = true;
+
+    setTimeout(() => {
+      this.overlay = false;
+      this.snackbar = true;
+    }, 3000);
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - */
 
