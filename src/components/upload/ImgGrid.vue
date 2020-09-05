@@ -1,6 +1,7 @@
 <template>
   <v-container fluid class="pa-0">
     <h2>中小企照片</h2>
+    <h3 class="info--text">最多 9 張</h3>
     <v-row no-gutters class="mt-3">
       <v-col v-for="(img, i) in imgs" :key="i" cols="4" class="pa-1">
         <v-card>
@@ -94,6 +95,10 @@ export default class ImgGrid extends Vue {
     }
   ];
 
+  getImgs(): Array<string> {
+    return this.imgs;
+  }
+
   get isValid(): boolean {
     return this.imgs.length > 0;
   }
@@ -138,6 +143,8 @@ export default class ImgGrid extends Vue {
         throw "Reader result should be a string";
 
       this.imgs.push(loadedReader.result);
+
+      this.$emit("validate");
     });
 
     reader.readAsDataURL(file);

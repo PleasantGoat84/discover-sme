@@ -10,42 +10,7 @@
         </v-card-title>
 
         <v-card-text class="pt-4">
-          <v-form ref="uploadForm" v-model="isFormValid">
-            <v-text-field
-              label="中小企名稱"
-              prepend-inner-icon="mdi-domain"
-              :rules="[v => (v || '').length > 0 || '請輸入中小企名稱']"
-            />
-
-            <v-textarea filled name="content" label="分享內容" class="mt-3" />
-
-            <v-text-field
-              label="中小企位置"
-              prepend-inner-icon="mdi-map-marker"
-              messages="按此自動取得當前定位"
-              :rules="[gPosValidator]"
-            >
-              <template v-slot:message="{ message }">
-                <v-btn
-                  text
-                  small
-                  @click="getPos"
-                  color="blue"
-                  v-if="!gPos"
-                  class="pa-0"
-                >
-                  {{ message }}
-                </v-btn>
-                <template v-else>
-                  已取得當前定位, 你亦可以填寫更準確的地址
-                </template>
-              </template>
-            </v-text-field>
-
-            <v-divider class="my-8" />
-
-            <ImgGrid ref="imgGrid" />
-          </v-form>
+          <UploadForm ref="uploadForm" />
         </v-card-text>
 
         <v-card-actions class="justify-center pb-10 mt-3">
@@ -53,43 +18,112 @@
             color="primary"
             large
             class="px-4"
-            :disabled="!(isFormValid && $refs.imgGrid.isValid)"
             @click="upload"
-            >發佈分享</v-btn
+            :disabled="!isValid || uploading"
           >
+            發佈分享
+          </v-btn>
         </v-card-actions>
       </v-card>
+
+      <v-overlay :value="overlay">
+        <v-progress-circular indeterminate />
+      </v-overlay>
+
+      <v-snackbar v-model="snackbar">
+        分享發佈成功
+
+        <template v-slot:action="{ attrs }">
+          <v-btn color="pink" text v-bind="attrs" @click="snackbar = false">
+            Close
+          </v-btn>
+        </template>
+      </v-snackbar>
     </v-col>
   </v-row>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+import UploadForm from "@/components/upload/UploadForm.vue";
 import ImgGrid from "@/components/upload/ImgGrid.vue";
 
-@Component({ components: { ImgGrid } })
+@Component({ components: { UploadForm } })
 export default class Upload extends Vue {
-  private gPos: Position | null = null;
+  private overlay = false;
+  private snackbar = false;
 
-  private isFormValid = false;
+  private uploading = false;
 
-  // get the current position
-  private getPos(): void {
-    navigator.geolocation.getCurrentPosition(pos => {
-      this.gPos = pos;
+  isValid = false;
 
-      // vuetify and typescript
-      (this.$refs.uploadForm as Vue & { validate: () => void }).validate();
-    });
+  getUploadForm(): UploadForm {
+    return this.$refs.uploadForm as UploadForm;
   }
 
-  private gPosValidator(value: string | undefined): boolean | string {
-    return !((value || "").length === 0 && this.gPos === null);
+  getImgGrid(): ImgGrid {
+    return this.getUploadForm().$refs.imgGrid as ImgGrid;
+  }
+
+  get shareAvailable(): boolean {
+    return navigator.share !== undefined;
   }
 
   // submit the form
   private upload(): void {
-    return;
+    this.uploading = true;
+
+    const uploadForm = this.getUploadForm();
+    const formData = new FormData();
+
+    formData.append("title", uploadForm.getTitle());
+    formData.append("content", uploadForm.getContent());
+
+    const sme = uploadForm.getSme();
+
+    formData.append("sme-name", sme.name);
+    formData.append("sme-pos", sme.pos.value);
+
+    if (sme.pos.gPos !== undefined)
+      formData.append(
+        "sme-g-pos",
+        sme.pos.gPos.coords.latitude + "," + sme.pos.gPos.coords.longitude
+      );
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    // since img data is too long and useless in email, images will be added later
+    fetch("https://formspree.io/xjvankew", {
+      method: "POST",
+      body: formData,
+      mode: "no-cors"
+    }).then(res => console.log(res));
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    const imgGrid = this.getImgGrid();
+    imgGrid.getImgs().forEach((img, i) => {
+      formData.append(`sme-img[${i}]`, img);
+    });
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    // fetch("https://do.something.with.the.api", {
+    //   method: "POST",
+    //   body: formData
+    // }).then(res => console.log(res));
+
+    /* - - - - - - - - - - - - - - - - - - - - - - - - - */
+
+    const dataObj: {
+      [key: string]: FormDataEntryValue;
+    } = {};
+
+    for (const data of formData.entries()) {
+      dataObj[data[0]] = data[1];
+    }
+
+    console.log(dataObj);
   }
 }
 </script>

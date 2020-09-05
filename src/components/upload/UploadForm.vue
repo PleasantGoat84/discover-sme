@@ -1,0 +1,127 @@
+<template>
+  <v-form ref="uploadForm" v-model="isFormValid">
+    <v-text-field
+      label="分享標題"
+      :rules="[v => (v || '').length > 0 || '請輸入標題']"
+      v-model="title"
+    />
+
+    <v-textarea
+      filled
+      name="content"
+      label="分享內容"
+      class="mt-3"
+      v-model="content"
+    />
+
+    <v-text-field
+      label="中小企名稱"
+      prepend-inner-icon="mdi-domain"
+      :rules="[v => (v || '').length > 0 || '請輸入中小企名稱']"
+      v-model="sme.name"
+    />
+    <v-text-field
+      label="中小企位置"
+      prepend-inner-icon="mdi-map-marker"
+      :messages="gPosAvailable ? '按此自動取得當前定位' : ''"
+      :rules="[gPosValidator]"
+      v-model="sme.pos.value"
+    >
+      <template v-slot:message="{ message }">
+        <v-btn
+          text
+          small
+          @click="getPos"
+          color="blue"
+          v-if="!sme.pos.gPos"
+          class="pa-0"
+        >
+          {{ message }}
+        </v-btn>
+        <template v-else>
+          已取得當前定位, 你亦可以填寫更準確的地址
+        </template>
+      </template>
+    </v-text-field>
+
+    <v-divider class="my-8" />
+
+    <ImgGrid ref="imgGrid" @validate="checkValid()" />
+  </v-form>
+</template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+import ImgGrid from "@/components/upload/ImgGrid.vue";
+import Upload from "@/views/Upload.vue";
+
+interface Sme {
+  name: string;
+  pos: {
+    value: string;
+    gPos?: Position;
+  };
+}
+
+@Component({
+  components: { ImgGrid },
+  watch: {
+    isValid: function(this: UploadForm, n: boolean): void {
+      this.$parent.$parent.isValid = n;
+    }
+  }
+})
+export default class UploadForm extends Vue {
+  $parent!: Vue & { $parent: Upload };
+
+  $refs!: {
+    imgGrid: ImgGrid;
+    uploadForm: UploadForm & { validate: () => void };
+  };
+
+  private title = "";
+
+  private sme: Sme = { name: "", pos: { value: "" } };
+
+  private content = "";
+
+  private isValid = false;
+  private isFormValid = false;
+
+  getTitle(): string {
+    return this.title;
+  }
+
+  getSme(): Sme {
+    return this.sme;
+  }
+
+  getContent(): string {
+    return this.content;
+  }
+
+  get gPosAvailable(): boolean {
+    return navigator.geolocation !== undefined;
+  }
+
+  private checkValid(): void {
+    this.isValid = this.isFormValid && this.$refs.imgGrid.isValid;
+  }
+
+  // get the current position
+  private getPos(): void {
+    navigator.geolocation.getCurrentPosition(pos => {
+      this.sme.pos.gPos = pos;
+
+      console.log(pos);
+
+      // vuetify and typescript
+      this.$refs.uploadForm.validate();
+    });
+  }
+
+  private gPosValidator(value: string | undefined): boolean | string {
+    return !((value || "").length === 0 && this.sme.pos.gPos === undefined);
+  }
+}
+</script>
