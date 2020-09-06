@@ -26,6 +26,7 @@
       :messages="gPosAvailable ? '按此自動取得當前定位' : ''"
       :rules="[gPosValidator]"
       v-model="sme.pos.value"
+      ref="posField"
     >
       <template v-slot:message="{ message }">
         <v-btn
@@ -44,6 +45,15 @@
       </template>
     </v-text-field>
 
+    <v-select
+      v-model="category"
+      :items="Object.keys(categories)"
+      menu-props="auto"
+      label="中小企類型"
+      prepend-inner-icon="mdi-help-circle-outline"
+      :rules="[v => (v || '').length > 0 || '請選擇中小企類型']"
+    />
+
     <v-divider class="my-8" />
 
     <ImgGrid ref="imgGrid" @validate="checkValid()" />
@@ -54,6 +64,7 @@
 import { Component, Vue } from "vue-property-decorator";
 import ImgGrid from "@/components/upload/ImgGrid.vue";
 import Upload from "@/views/Upload.vue";
+import { SmeCategory } from "@/types";
 
 interface Sme {
   name: string;
@@ -80,6 +91,7 @@ export default class UploadForm extends Vue {
   $refs!: {
     imgGrid: ImgGrid;
     uploadForm: UploadForm & { validate: () => void };
+    posField: Vue;
   };
 
   private title = "";
@@ -88,9 +100,29 @@ export default class UploadForm extends Vue {
 
   private content = "";
 
+  private category = "";
+
   private isValid = false;
   private isFormValid = false;
   private isImgValid = false;
+
+  private readonly categories: {
+    [key: string]: SmeCategory;
+  } = {
+    餐廳: SmeCategory.Cafe,
+    飲品: SmeCategory.Drink,
+    髮廊: SmeCategory.Barber,
+    機電: SmeCategory.Mechanical,
+    時裝: SmeCategory.Fashion,
+    音樂: SmeCategory.Musical,
+    醫療: SmeCategory.Medical,
+    教育: SmeCategory.Education,
+    其他: SmeCategory.Other
+  };
+
+  getCategory(): SmeCategory {
+    return SmeCategory[this.category as keyof typeof SmeCategory];
+  }
 
   getFormValid(): boolean {
     return this.isFormValid;
@@ -120,15 +152,21 @@ export default class UploadForm extends Vue {
     this.isImgValid = this.$refs.imgGrid.isValid;
   }
 
+  getImgGrid(): ImgGrid {
+    return this.$refs.imgGrid;
+  }
+
   // get the current position
   private getPos(): void {
     navigator.geolocation.getCurrentPosition(pos => {
-      this.sme.pos.gPos = pos;
+      this.$set(this.sme.pos, "gPos", pos);
 
       console.log(pos);
 
-      // vuetify and typescript
-      this.$refs.uploadForm.validate();
+      // // vuetify and typescript
+      // this.$refs.uploadForm.validate();
+      // manually set valid to true
+      (this.$refs.posField as Vue & { validate: () => void }).validate();
     });
   }
 

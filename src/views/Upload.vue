@@ -10,7 +10,8 @@
         </v-card-title>
 
         <v-card-text class="pt-4">
-          <UploadForm ref="uploadForm" />
+          <UploadForm ref="uploadForm" v-show="!uploadFinish" />
+          <PostCard v-if="uploadFinish" :post="getGeneratedPost()" />
         </v-card-text>
 
         <v-card-actions class="justify-center pb-10 mt-3">
@@ -30,11 +31,15 @@
         <v-progress-circular indeterminate />
       </v-overlay>
 
-      <v-snackbar v-model="snackbar">
-        分享發佈成功
-
+      <v-snackbar v-model="snackbar" :color="apiError ? 'error' : ''">
+        {{ apiError ? "分享發佈失敗" : "分享發佈成功" }}
         <template v-slot:action="{ attrs }">
-          <v-btn color="primary" icon v-bind="attrs" @click="snackbar = false">
+          <v-btn
+            :color="apiError ? 'white' : 'primary'"
+            icon
+            v-bind="attrs"
+            @click="snackbar = false"
+          >
             <v-icon>mdi-close</v-icon>
           </v-btn>
         </template>
@@ -45,13 +50,21 @@
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
+
 import UploadForm from "@/components/upload/UploadForm.vue";
 import ImgGrid from "@/components/upload/ImgGrid.vue";
+import PostCard from "@/components/PostCard.vue";
 
-@Component({ components: { UploadForm } })
+import { Post } from "@/types";
+import { fakeApiGenPost } from "@/fake-api";
+
+@Component({ components: { UploadForm, PostCard } })
 export default class Upload extends Vue {
   private overlay = false;
   private snackbar = false;
+
+  private apiError = false;
+  private uploadFinish = false;
 
   private uploading = false;
 
@@ -69,11 +82,22 @@ export default class Upload extends Vue {
     return navigator.share !== undefined;
   }
 
+  getGeneratedPost(): Post {
+    return fakeApiGenPost(this.getUploadForm());
+  }
+
   // submit the form
-  private upload(): void {
+  private async upload(): Promise<void> {
     this.uploading = true;
 
     const uploadForm = this.getUploadForm();
+
+    uploadForm.$refs.uploadForm.validate();
+
+    await this.$nextTick();
+
+    if (!uploadForm.getFormValid()) return;
+
     const formData = new FormData();
 
     formData.append("title", uploadForm.getTitle());
@@ -115,10 +139,7 @@ export default class Upload extends Vue {
 
     this.overlay = true;
 
-    setTimeout(() => {
-      this.overlay = false;
-      this.snackbar = true;
-    }, 3000);
+    setTimeout(this.handleRes, 3000);
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - */
 
@@ -131,6 +152,19 @@ export default class Upload extends Vue {
     }
 
     console.log(dataObj);
+  }
+
+  private handleRes(): void {
+    // this.apiError = true;
+
+    this.overlay = false;
+    this.snackbar = true;
+
+    if (this.apiError) {
+      this.uploading = false;
+    } else {
+      this.uploadFinish = true;
+    }
   }
 }
 </script>

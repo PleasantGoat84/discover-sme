@@ -3,69 +3,7 @@
     <v-container fluid>
       <v-row>
         <v-col cols="12" v-for="(post, i) in latestPosts" :key="i">
-          <v-card color="lite">
-            <v-list-item>
-              <router-link
-                :to="{ path: '/user', query: { id: post.author.id } }"
-              >
-                <v-list-item-avatar color="info">
-                  <v-img
-                    :src="
-                      post.author.avatar
-                        ? post.author.avatar.url
-                        : require('@/assets/default-avatar.png')
-                    "
-                    contain
-                  />
-                </v-list-item-avatar>
-              </router-link>
-
-              <v-list-item-content>
-                <v-list-item-title class="info--text">
-                  {{ post.name }}
-                </v-list-item-title>
-
-                <v-list-item-subtitle>
-                  {{ post.author.name }}
-                  <span class="text--disabled"> · {{ post.postDate }}</span>
-                </v-list-item-subtitle>
-              </v-list-item-content>
-            </v-list-item>
-
-            <v-carousel
-              hide-delimiter-background
-              :show-arrows="false"
-              height="55vw"
-              :hide-delimiters="post.img.length <= 1"
-            >
-              <v-carousel-item
-                v-for="(img, j) in post.img"
-                :key="j"
-                :src="img.url"
-                contain
-              />
-            </v-carousel>
-
-            <v-card-text v-text="post.content" style="white-space: pre-line;" />
-
-            <v-card-actions>
-              <v-btn
-                text
-                color="primary"
-                :to="{ path: '/view', query: { id: post.sme.id } }"
-              >
-                查看中小企
-              </v-btn>
-              <v-spacer></v-spacer>
-              <v-btn icon :color="post.liked ? 'pink' : ''" @click="like(post)">
-                <v-icon>mdi-heart</v-icon>
-                <span class="ml-1">{{ post.popularity }}</span>
-              </v-btn>
-              <v-btn icon @click="share(post)">
-                <v-icon>mdi-share-variant</v-icon>
-              </v-btn>
-            </v-card-actions>
-          </v-card>
+          <PostCard :post="post" />
         </v-col>
       </v-row>
     </v-container>
@@ -78,22 +16,14 @@ import { Component, Vue } from "vue-property-decorator";
 import { Post } from "@/types.ts";
 import { fakeApiPosts } from "@/fake-api";
 
-@Component
+import PostCard from "@/components/PostCard.vue";
+
+@Component({ components: { PostCard } })
 export default class LastestPosts extends Vue {
   private posts: Array<Post> = [];
 
   get latestPosts(): Array<Post> {
     return this.posts.slice(0, 5);
-  }
-
-  private like(post: Post): void {
-    console.debug(`toggle like of post number ${post.id}`);
-    post.popularity += post.liked ? -1 : 1;
-    post.liked = !post.liked;
-  }
-
-  private share(post: Post): void {
-    console.debug(`share post number ${post.id}`);
   }
 
   created() {

@@ -1,4 +1,4 @@
-import { HotSme, SmeCategory, SmeEvent, Post } from "./types";
+import { HotSme, SmeCategory, SmeEvent, Post, UploadForm } from "./types";
 
 export function fakeApiHotSmes(): Array<HotSme> {
   return [
@@ -342,4 +342,33 @@ export function fakeApiHotPosts(): Array<Post> {
   return fakeApiPosts()
     .sort((a, b) => b.popularity - a.popularity)
     .slice(0, 6);
+}
+
+export function fakeApiGenPost(form: UploadForm): Post {
+  return {
+    name: form.getTitle(),
+    id: Math.floor(Math.random() * 9999),
+    author: {
+      id: Math.floor(Math.random() * 9999),
+      name: "新用戶"
+    },
+    postDate: new Date()
+      .toISOString()
+      .substr(0, 10)
+      .replace(/-/g, "/"),
+    content: form.getContent(),
+    img: form
+      .getImgGrid()
+      .getImgs()
+      .map(s => ({
+        url: s
+      })),
+    popularity: 0,
+    liked: false,
+    sme: {
+      name: form.getSme().name,
+      id: Math.floor(Math.random() * 9999),
+      category: form.getCategory()
+    }
+  };
 }

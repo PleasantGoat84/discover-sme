@@ -52,3 +52,24 @@ export interface Post {
   liked: boolean;
   sme: Sme;
 }
+
+// somehow importing components doesnt work, so sad
+export interface UploadForm {
+  getCategory(): SmeCategory;
+  getFormValid(): boolean;
+  getImgValid(): boolean;
+  getTitle(): string;
+  getSme(): {
+    name: string;
+    pos: {
+      value: string;
+      gPos?: Position;
+    };
+  };
+  getContent(): string;
+  getImgGrid(): {
+    getImgs(): Array<string>;
+    getImgInputsDiv(): HTMLElement | null;
+    getLastImgInput(): HTMLInputElement | null;
+  };
+}
