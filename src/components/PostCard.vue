@@ -106,7 +106,11 @@ export default class PostCard extends Vue {
   private share(): void {
     console.debug(`share post number ${this.post.id}`);
 
-    navigator.share({ title: this.post.name });
+    navigator.share({
+      title: this.post.name,
+      text: `${this.post.name} - 發現中小企`,
+      url: `${window.location.origin}/post?id=${this.post.id}`
+    });
   }
 }
 </script>
