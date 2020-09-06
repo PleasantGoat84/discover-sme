@@ -17,7 +17,10 @@ const routes: Array<RouteConfig> = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "upload" */ "../views/Upload.vue")
+      import(/* webpackChunkName: "upload" */ "../views/Upload.vue"),
+    meta: {
+      title: "上傳分享"
+    }
   },
   {
     path: "*",
@@ -27,6 +30,11 @@ const routes: Array<RouteConfig> = [
 
 const router = new VueRouter({
   routes
+});
+
+router.beforeEach((to, from, next) => {
+  document.title = to.meta && to.meta.title ? to.meta.title : "發現澳門中小企";
+  next();
 });
 
 export default router;
