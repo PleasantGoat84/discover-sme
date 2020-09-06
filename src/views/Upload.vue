@@ -107,6 +107,7 @@ export default class Upload extends Vue {
 
     formData.append("sme-name", sme.name);
     formData.append("sme-pos", sme.pos.value);
+    formData.append("sme-cat", uploadForm.getCategory().toString());
 
     if (sme.pos.gPos !== undefined)
       formData.append(

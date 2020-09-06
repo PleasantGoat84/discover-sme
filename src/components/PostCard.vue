@@ -53,15 +53,15 @@
       <v-spacer></v-spacer>
 
       <v-btn
-        icon
-        :color="post.liked ^ toggleLike ? 'pink' : ''"
+        text
+        :color="post.liked ^ toggleLike ? 'pink' : 'grey'"
         @click="like(post)"
       >
         <v-icon>mdi-heart</v-icon>
         <span class="ml-1">{{ pop }}</span>
       </v-btn>
 
-      <v-btn icon @click="share(post)">
+      <v-btn icon @click="share(post)" v-if="shareAvailable">
         <v-icon>mdi-share-variant</v-icon>
       </v-btn>
     </v-card-actions>
@@ -89,6 +89,10 @@ export default class PostCard extends Vue {
     return original;
   }
 
+  get shareAvailable(): boolean {
+    return navigator.share !== undefined;
+  }
+
   private toggleLike = false;
 
   private like(): void {
@@ -101,6 +105,8 @@ export default class PostCard extends Vue {
 
   private share(): void {
     console.debug(`share post number ${this.post.id}`);
+
+    navigator.share({ title: this.post.name });
   }
 }
 </script>

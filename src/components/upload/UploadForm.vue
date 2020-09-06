@@ -121,7 +121,7 @@ export default class UploadForm extends Vue {
   };
 
   getCategory(): SmeCategory {
-    return SmeCategory[this.category as keyof typeof SmeCategory];
+    return this.categories[this.category];
   }
 
   getFormValid(): boolean {
@@ -158,16 +158,22 @@ export default class UploadForm extends Vue {
 
   // get the current position
   private getPos(): void {
-    navigator.geolocation.getCurrentPosition(pos => {
-      this.$set(this.sme.pos, "gPos", pos);
+    navigator.geolocation.getCurrentPosition(
+      pos => {
+        this.$set(this.sme.pos, "gPos", pos);
 
-      console.log(pos);
+        console.log(pos);
 
-      // // vuetify and typescript
-      // this.$refs.uploadForm.validate();
-      // manually set valid to true
-      (this.$refs.posField as Vue & { validate: () => void }).validate();
-    });
+        // // vuetify and typescript
+        // this.$refs.uploadForm.validate();
+        // manually set valid to true
+        (this.$refs.posField as Vue & { validate: () => void }).validate();
+      },
+      err => {
+        alert("獲取當前位置失敗, 請確定位置存取已開啟");
+        console.log(err);
+      }
+    );
   }
 
   private gPosValidator(value: string | undefined): boolean | string {
