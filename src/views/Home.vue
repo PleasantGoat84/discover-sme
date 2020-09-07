@@ -6,6 +6,21 @@
       </v-col>
     </v-row>
 
+    <v-row class="mt-2" no-gutters>
+      <v-col cols="6" class="d-flex pa-1">
+        <v-btn class="grow" color="info" dark large to="/upload">
+          上傳分享
+          <v-icon class="ml-1">mdi-book-plus-multiple-outline</v-icon>
+        </v-btn>
+      </v-col>
+      <v-col cols="6" class="d-flex pa-1">
+        <v-btn class="grow" color="info" dark large to="/view-all">
+          中小企目錄
+          <v-icon class="ml-1">mdi-bookmark-multiple-outline</v-icon>
+        </v-btn>
+      </v-col>
+    </v-row>
+
     <v-row no-gutters class="mb-2">
       <v-col cols="12" v-for="(sme, i) in hotSmes" :key="i">
         <HotSmeCard
