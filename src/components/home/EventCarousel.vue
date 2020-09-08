@@ -1,5 +1,10 @@
 <template>
-  <v-carousel continuous cycle hide-delimiters height="30vh">
+  <v-carousel
+    continuous
+    cycle
+    hide-delimiters
+    height="max(30vh,min(50vw,310px))"
+  >
     <v-carousel-item
       v-for="(event, i) in events"
       :key="i"

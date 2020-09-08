@@ -40,7 +40,7 @@
         :alt="sme.name"
         v-for="(img, i) in sme.imgs"
         :key="i"
-        class="mx-1"
+        class="mx-1 elevation-3"
       />
     </div>
   </v-card>
