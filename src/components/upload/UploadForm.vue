@@ -65,6 +65,7 @@ import { Component, Vue } from "vue-property-decorator";
 import ImgGrid from "@/components/upload/ImgGrid.vue";
 import Upload from "@/views/Upload.vue";
 import { SmeCategory } from "@/types";
+import { fakeApiCategories } from "@/fake-api";
 
 interface Sme {
   name: string;
@@ -106,19 +107,9 @@ export default class UploadForm extends Vue {
   private isFormValid = false;
   private isImgValid = false;
 
-  private readonly categories: {
+  private categories: {
     [key: string]: SmeCategory;
-  } = {
-    餐廳: SmeCategory.Cafe,
-    飲品: SmeCategory.Drink,
-    髮廊: SmeCategory.Barber,
-    機電: SmeCategory.Mechanical,
-    時裝: SmeCategory.Fashion,
-    音樂: SmeCategory.Musical,
-    醫療: SmeCategory.Medical,
-    教育: SmeCategory.Education,
-    其他: SmeCategory.Other
-  };
+  } = {};
 
   getCategory(): SmeCategory {
     return this.categories[this.category];
@@ -178,6 +169,10 @@ export default class UploadForm extends Vue {
 
   private gPosValidator(value: string | undefined): boolean | string {
     return !((value || "").length === 0 && this.sme.pos.gPos === undefined);
+  }
+
+  created(): void {
+    this.categories = fakeApiCategories();
   }
 }
 </script>

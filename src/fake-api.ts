@@ -372,3 +372,17 @@ export function fakeApiGenPost(form: UploadForm): Post {
     }
   };
 }
+
+export function fakeApiCategories(): { [key: string]: SmeCategory } {
+  return {
+    餐廳: SmeCategory.Cafe,
+    飲品: SmeCategory.Drink,
+    髮廊: SmeCategory.Barber,
+    機電: SmeCategory.Mechanical,
+    時裝: SmeCategory.Fashion,
+    音樂: SmeCategory.Musical,
+    醫療: SmeCategory.Medical,
+    教育: SmeCategory.Education,
+    其他: SmeCategory.Other
+  };
+}

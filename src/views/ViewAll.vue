@@ -8,7 +8,18 @@
           </v-btn>
           中小企目錄
         </v-card-title>
+
+        <SmeTable />
       </v-card>
     </v-col>
   </v-row>
 </template>
+
+<script lang="ts">
+import { Component, Vue } from "vue-property-decorator";
+
+import SmeTable from "@/components/view-all/SmeTable.vue";
+
+@Component({ components: { SmeTable } })
+export default class ViewAll extends Vue {}
+</script>
