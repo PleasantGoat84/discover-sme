@@ -8,13 +8,21 @@
 
     <v-row class="mt-2" no-gutters>
       <v-col cols="6" class="d-flex pa-1">
-        <v-btn class="grow" color="info" dark large to="/upload">
+        <v-btn class="grow" color="info" dark large to="/upload" elevation="3">
           上傳分享
           <v-icon class="ml-1">mdi-book-plus-multiple-outline</v-icon>
         </v-btn>
       </v-col>
+
       <v-col cols="6" class="d-flex pa-1">
-        <v-btn class="grow" color="info" dark large to="/view-all">
+        <v-btn
+          class="grow"
+          color="info"
+          dark
+          large
+          to="/view-all"
+          elevation="3"
+        >
           中小企目錄
           <v-icon class="ml-1">mdi-bookmark-multiple-outline</v-icon>
         </v-btn>
