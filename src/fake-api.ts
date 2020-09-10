@@ -1,4 +1,4 @@
-import { HotSme, SmeCategory, SmeEvent, Post, UploadForm } from "./types";
+import { HotSme, SmeCategory, Post, UploadForm, CarouselItem } from "./types";
 
 export function fakeApiHotSmes(): Array<HotSme> {
   return [
@@ -94,7 +94,7 @@ export function fakeApiHotSmes(): Array<HotSme> {
   ];
 }
 
-export function fakeApiEventCarousel(): Array<SmeEvent> {
+export function fakeApiCarousel(): Array<CarouselItem> {
   // const events: Array<SmeEvent> = [];
 
   // for (let i = 1; i <= 10; i++)
@@ -106,30 +106,42 @@ export function fakeApiEventCarousel(): Array<SmeEvent> {
   return [
     {
       carouselImg: {
+        url: require("@/assets/carousel/upload.jpg")
+      },
+      carouselLink: "/upload"
+    },
+    {
+      carouselImg: {
+        url: require("@/assets/carousel/view-all.jpg")
+      },
+      carouselLink: "/view-all"
+    },
+    {
+      carouselImg: {
         url:
           "https://smelab.com.hk/wp-content/uploads/2019/12/SME-Lab-Article-20191230-v2-1024x538.jpg"
       },
-      id: 1
+      carouselLink: ""
     },
     {
       carouselImg: {
         url:
           "https://cdn.thestandnews.com/media/photos/cache/a_Lc53V_1200x0.png"
       },
-      id: 2
+      carouselLink: ""
     },
     {
       carouselImg: {
         url:
           "https://statics.exmoo.com/uploads/2020-03-03/iPCfSTeIuxHTx06uOAaM.jpg"
       },
-      id: 3
+      carouselLink: ""
     },
     {
       carouselImg: {
         url: "https://i.ytimg.com/vi/TnmA1UcElFw/maxresdefault.jpg"
       },
-      id: 4
+      carouselLink: ""
     }
   ];
 }

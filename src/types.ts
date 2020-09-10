@@ -1,7 +1,9 @@
-export interface SmeEvent {
-  carouselImg: {
-    url: string;
-  };
+export interface CarouselItem {
+  carouselImg: Image;
+  carouselLink: string;
+}
+
+export interface SmeEvent extends CarouselItem {
   id: number;
 }
 
