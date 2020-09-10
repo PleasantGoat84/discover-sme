@@ -5,8 +5,8 @@
         <router-link to="/home">
           <v-img
             contain
-            width="40"
-            src="http://via.placeholder.com/100"
+            width="50"
+            :src="require('@/assets/icon.png')"
             class="shrink"
           />
         </router-link>
