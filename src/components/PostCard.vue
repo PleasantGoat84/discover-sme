@@ -37,6 +37,7 @@
         :key="j"
         :src="img.url"
         contain
+        @click="openImgDialog(img.url)"
       />
     </v-carousel>
 
@@ -66,6 +67,10 @@
         <v-icon>mdi-share-variant</v-icon>
       </v-btn>
     </v-card-actions>
+
+    <v-dialog v-model="imgDialog" overlay-opacity="0.95">
+      <v-img :src="dialogImgSrc" />
+    </v-dialog>
   </v-card>
 </template>
 
@@ -77,6 +82,14 @@ import { Post } from "@/types.ts";
 @Component
 export default class PostCard extends Vue {
   @Prop() private post!: Post;
+
+  private imgDialog = false;
+  private dialogImgSrc = "";
+
+  private openImgDialog(src: string) {
+    this.imgDialog = true;
+    this.dialogImgSrc = src;
+  }
 
   get pop(): number {
     const original = this.post.popularity;

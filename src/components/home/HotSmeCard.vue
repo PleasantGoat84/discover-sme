@@ -41,8 +41,14 @@
         v-for="(img, i) in sme.imgs"
         :key="i"
         class="mx-1 elevation-3"
+        @click="openImgDialog(img.url)"
+        style="cursor: pointer;"
       />
     </div>
+
+    <v-dialog v-model="imgDialog" overlay-opacity="0.95">
+      <v-img :src="dialogImgSrc" />
+    </v-dialog>
   </v-card>
 </template>
 
@@ -55,7 +61,15 @@ import { HotSme, SmeCategory } from "@/types.ts";
 export default class HotSmeCard extends Vue {
   @Prop() private sme!: HotSme;
 
+  private imgDialog = false;
+  private dialogImgSrc = "";
+
   private icons: { [key: string]: string } = {};
+
+  private openImgDialog(src: string) {
+    this.imgDialog = true;
+    this.dialogImgSrc = src;
+  }
 
   getSmeIcon(category: SmeCategory): string {
     const filePath = `./${SmeCategory[category].toLowerCase()}.png`;
