@@ -122,7 +122,12 @@ export default class Upload extends Vue {
       method: "POST",
       body: formData,
       mode: "no-cors"
-    }).then(res => console.log(res));
+    }).then(res => {
+      console.log(res);
+      alert(
+        "form to email request has been sent! check console for more info!"
+      );
+    });
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - */
 
