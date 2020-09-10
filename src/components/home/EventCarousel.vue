@@ -3,7 +3,7 @@
     continuous
     cycle
     hide-delimiters
-    height="max(35vh,min(50vw,310px))"
+    height="max(33vh,min(50vw,310px))"
     style="background-color: #c7ebff;"
   >
     <v-carousel-item
