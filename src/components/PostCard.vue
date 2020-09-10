@@ -30,6 +30,7 @@
       height="55vw"
       :show-arrows="post.img.length > 1"
       hide-delimiters
+      style="background-color: white;"
     >
       <v-carousel-item
         v-for="(img, j) in post.img"
@@ -50,7 +51,7 @@
         查看中小企
       </v-btn>
 
-      <v-spacer></v-spacer>
+      <v-spacer />
 
       <v-btn
         text

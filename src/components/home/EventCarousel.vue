@@ -3,32 +3,33 @@
     continuous
     cycle
     hide-delimiters
-    height="max(30vh,min(50vw,310px))"
+    height="max(35vh,min(50vw,310px))"
+    style="background-color: #c7ebff;"
   >
     <v-carousel-item
-      v-for="(event, i) in events"
+      v-for="(item, i) in items"
       :key="i"
-      :src="event.carouselImg.url"
-      :to="{ path: '/event', query: { id: event.id } }"
-    >
-    </v-carousel-item>
+      :src="item.carouselImg.url"
+      :to="item.carouselLink"
+      contain
+    />
   </v-carousel>
 </template>
 
 <script lang="ts">
 import { Component, Vue } from "vue-property-decorator";
 
-import { SmeEvent } from "@/types.ts";
+import { CarouselItem } from "@/types.ts";
 
-import { fakeApiEventCarousel } from "@/fake-api.ts";
+import { fakeApiCarousel } from "@/fake-api.ts";
 
 @Component
 export default class EventCarousel extends Vue {
-  private events: Array<SmeEvent> = [];
+  private items: Array<CarouselItem> = [];
 
   created() {
     // do something with the api
-    this.events = fakeApiEventCarousel();
+    this.items = fakeApiCarousel();
   }
 }
 </script>
