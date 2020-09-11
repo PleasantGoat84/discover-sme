@@ -104,28 +104,25 @@ export function fakeApiCarousel(): Array<CarouselItem> {
     },
     {
       carouselImg: {
-        url:
-          "https://smelab.com.hk/wp-content/uploads/2019/12/SME-Lab-Article-20191230-v2-1024x538.jpg"
+        url: require("@/assets/fake-api/carousel/1.jpg")
       },
       carouselLink: ""
     },
     {
       carouselImg: {
-        url:
-          "https://cdn.thestandnews.com/media/photos/cache/a_Lc53V_1200x0.png"
+        url: require("@/assets/fake-api/carousel/2.png")
       },
       carouselLink: ""
     },
     {
       carouselImg: {
-        url:
-          "https://statics.exmoo.com/uploads/2020-03-03/iPCfSTeIuxHTx06uOAaM.jpg"
+        url: require("@/assets/fake-api/carousel/3.jpg")
       },
       carouselLink: ""
     },
     {
       carouselImg: {
-        url: "https://i.ytimg.com/vi/TnmA1UcElFw/maxresdefault.jpg"
+        url: require("@/assets/fake-api/carousel/4.jpg")
       },
       carouselLink: ""
     }
