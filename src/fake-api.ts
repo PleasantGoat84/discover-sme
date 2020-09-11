@@ -9,30 +9,25 @@ export function fakeApiHotSmes(): Array<HotSme> {
       popularity: 9487,
       imgs: [
         {
-          url:
-            "https://i2.wp.com/zamag.net/wp-content/uploads/2019/09/20190629-AM4A7358.jpg?w=1068"
+          url: require("@/assets/fake-api/hot-sme/1/1.jpg")
         },
         {
-          url:
-            "https://d314m3nkjsdr4r.cloudfront.net/original/c1/4e/93/15735327491-52-1573532763.png"
+          url: require("@/assets/fake-api/hot-sme/1/2.png")
         },
         {
-          url:
-            "https://pic1.zhimg.com/v2-5908dbdaed10af4d280915e3b20868df_b.jpg"
+          url: require("@/assets/fake-api/hot-sme/1/3.jpg")
         },
         {
-          url:
-            "https://youimg1.c-ctrip.com/target/100d0y000000meb7i6792_D_260_195_Q90.jpg"
+          url: require("@/assets/fake-api/hot-sme/1/4.jpg")
         },
         {
-          url: "https://youimg1.c-ctrip.com/target/100h1700000123m933ED7.jpg"
+          url: require("@/assets/fake-api/hot-sme/1/5.jpg")
         },
         {
-          url: "https://youimg1.c-ctrip.com/target/10091700000124g61D202.jpg"
+          url: require("@/assets/fake-api/hot-sme/1/6.jpg")
         },
         {
-          url:
-            "https://e.share.photo.xuite.net/nickhh/1ec472f/4695535/179324224_l.jpg"
+          url: require("@/assets/fake-api/hot-sme/1/7.jpg")
         }
       ],
       category: SmeCategory.Cafe
@@ -44,24 +39,19 @@ export function fakeApiHotSmes(): Array<HotSme> {
       popularity: 1128,
       imgs: [
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/26169358_1527273333975357_4350052215481500058_n.jpg?_nc_cat=108&_nc_sid=8bfeb9&_nc_ohc=eE6xh0WsiEkAX_nE-jo&_nc_ht=scontent-hkt1-1.xx&oh=37aabfe78312b5f65ffc041f436f6dc0&oe=5F70BBB5"
+          url: require("@/assets/fake-api/hot-sme/2/1.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/26195710_1527273343975356_101995740886527856_n.jpg?_nc_cat=109&_nc_sid=8bfeb9&_nc_ohc=Q8trO-91_1QAX_JoI8x&_nc_ht=scontent-hkt1-1.xx&oh=269995d1e3b5b438dc0ce7f99e1eaf27&oe=5F7029CC"
+          url: require("@/assets/fake-api/hot-sme/2/2.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/26219259_1527275630641794_5226385376297699012_n.jpg?_nc_cat=105&_nc_sid=8bfeb9&_nc_ohc=uJGUKLIKKE0AX-h5bTB&_nc_ht=scontent-hkt1-1.xx&oh=cce3193e02f1aa1685546bf77fb10d2f&oe=5F717DF2"
+          url: require("@/assets/fake-api/hot-sme/2/3.jpg")
         },
         {
-          url:
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQBiRTbZhCBjRW_M4aEJ5NxGunKHwIcuI1iCQ&usqp=CAU"
+          url: require("@/assets/fake-api/hot-sme/2/4.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/74698789_2430898600279488_337845743865823232_o.jpg?_nc_cat=108&_nc_sid=8bfeb9&_nc_ohc=duSqjO_1fygAX9uvmwt&_nc_ht=scontent-hkt1-1.xx&oh=eecebb909d3edc6c2457308e34f3411b&oe=5F6E5E61"
+          url: require("@/assets/fake-api/hot-sme/2/5.jpg")
         }
       ],
       category: SmeCategory.Other
@@ -73,20 +63,16 @@ export function fakeApiHotSmes(): Array<HotSme> {
       popularity: 346,
       imgs: [
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58622787_1046257432229218_4952107845022646272_o.jpg?_nc_cat=108&_nc_sid=730e14&_nc_ohc=wJgD8Ko4Qr8AX_GizEY&_nc_ht=scontent-hkt1-1.xx&oh=412da9642fbdcd680e692f42230e0068&oe=5F70E4F3"
+          url: require("@/assets/fake-api/hot-sme/3/1.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58755168_1046257382229223_8664211000502779904_o.jpg?_nc_cat=100&_nc_sid=730e14&_nc_ohc=JsgtIyk8gtUAX8Xi8FI&_nc_ht=scontent-hkt1-1.xx&oh=76f616b880a4f2ca261db80db98a6022&oe=5F7051C9"
+          url: require("@/assets/fake-api/hot-sme/3/2.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58749401_1046257265562568_6723634404100407296_o.jpg?_nc_cat=106&_nc_sid=730e14&_nc_ohc=O-ngy2Zvb3QAX-gD3_i&_nc_ht=scontent-hkt1-1.xx&oh=5eddd5948c6c62c8f737b69a5e723796&oe=5F6FBA2F"
+          url: require("@/assets/fake-api/hot-sme/3/3.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58376328_1046257278895900_4098097256555610112_o.jpg?_nc_cat=104&_nc_sid=730e14&_nc_ohc=v7BMdPxjfHkAX_doN56&_nc_ht=scontent-hkt1-1.xx&oh=ee5de639d1cc14e3b907fcd2059f1fb5&oe=5F71B962"
+          url: require("@/assets/fake-api/hot-sme/3/4.jpg")
         }
       ],
       category: SmeCategory.Drink
