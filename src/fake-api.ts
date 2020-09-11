@@ -155,8 +155,7 @@ export function fakeApiPosts(): Array<Post> {
       id: 7,
       img: [
         {
-          url:
-            "https://fastly.4sqi.net/img/general/600x600/31703202_yjVQEPb3UiI4oNXpiioPkv67RIg_N6CbIfKH0h4nfEA.jpg"
+          url: require("@/assets/post/1/1.jpg")
         }
       ],
       content: "雅廉訪美食——新爽爽豬肉丸, 其中最為招牌的就是肉丸米鳥!",
@@ -164,8 +163,7 @@ export function fakeApiPosts(): Array<Post> {
         name: "Terry C.C.I.",
         id: 8487,
         avatar: {
-          url:
-            "https://cdn.discordapp.com/avatars/578869529783042048/a02c08a2f068822669d05495f682a007.png?size=128"
+          url: require("@/assets/avatar/1.png")
         }
       },
       popularity: 5,
@@ -182,12 +180,10 @@ export function fakeApiPosts(): Array<Post> {
       id: 6,
       img: [
         {
-          url:
-            "https://static5.orstatic.com/userphoto/photo/0/FA/0030N481B16CEF54A24FE7px.jpg"
+          url: require("@/assets/post/2/1.jpg")
         },
         {
-          url:
-            "https://static7.orstatic.com/userphoto/photo/1/1BB/009CJQ6891BE294C35ED14px.jpg"
+          url: require("@/assets/post/2/2.jpg")
         }
       ],
       content:
@@ -196,7 +192,7 @@ export function fakeApiPosts(): Array<Post> {
         name: "ZA誌",
         id: 84,
         avatar: {
-          url: "http://zamag.net/wp-content/uploads/ZAMAG-Logo_2016.png"
+          url: require("@/assets/avatar/2.png")
         }
       },
       popularity: 84,
@@ -213,14 +209,13 @@ export function fakeApiPosts(): Array<Post> {
       id: 5,
       img: [
         {
-          url:
-            "https://cinlectureroom.com/wp-content/uploads/2017/06/pshipp-1280x960.jpg"
+          url: require("@/assets/post/3/1.jpg")
         },
         {
-          url: "https://cinlectureroom.com/wp-content/uploads/2017/06/SHIPD.jpg"
+          url: require("@/assets/post/3/2.jpg")
         },
         {
-          url: "https://cinlectureroom.com/wp-content/uploads/2017/06/SHIPE.jpg"
+          url: require("@/assets/post/3/3.jpg")
         }
       ],
       content:
@@ -229,8 +224,7 @@ export function fakeApiPosts(): Array<Post> {
         name: "文創講壇",
         id: 85,
         avatar: {
-          url:
-            "https://cinlectureroom.com/wp-content/uploads/2015/10/cropped-LOGO-small-32x32.jpg"
+          url: require("@/assets/avatar/3.jpg")
         }
       },
       popularity: 65,
@@ -247,16 +241,13 @@ export function fakeApiPosts(): Array<Post> {
       id: 4,
       img: [
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/59484786_1046257358895892_6786539839442386944_o.jpg?_nc_cat=101&_nc_sid=730e14&_nc_ohc=RqQo4Fm1Fi4AX83Jbkd&_nc_ht=scontent-hkt1-1.xx&oh=ad86774ab0fe7d5a448b7c4ba9f10bcb&oe=5F717A92"
+          url: require("@/assets/post/4/1.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58612964_1046257338895894_5642795206773309440_o.jpg?_nc_cat=110&_nc_sid=730e14&_nc_ohc=3x6ouTRGpQEAX-weYfJ&_nc_ht=scontent-hkt1-1.xx&oh=fab5b0eba51b9ab42bbada94679e458a&oe=5F72AC12"
+          url: require("@/assets/post/4/2.jpg")
         },
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58961561_1046257322229229_7773102318483931136_o.jpg?_nc_cat=108&_nc_sid=730e14&_nc_ohc=DMk5_pgfyowAX9xi4aQ&_nc_ht=scontent-hkt1-1.xx&oh=78c93ecf3a3d15ad4e5a6c2937b8356c&oe=5F71668C"
+          url: require("@/assets/post/4/3.jpg")
         }
       ],
       content:
@@ -265,8 +256,7 @@ export function fakeApiPosts(): Array<Post> {
         name: "FOOK U 福利團",
         id: 86,
         avatar: {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-1/p148x148/14333628_558753627646270_6200286093088935593_n.png?_nc_cat=109&_nc_sid=1eb0c7&_nc_ohc=023FaDHr3oQAX8CpQik&_nc_ht=scontent-hkt1-1.xx&oh=1ed6e427b06ea23423511a8203a04a46&oe=5F71841E"
+          url: require("@/assets/avatar/4.png")
         }
       },
       popularity: 48,
@@ -283,8 +273,7 @@ export function fakeApiPosts(): Array<Post> {
       id: 2,
       img: [
         {
-          url:
-            "http://www.smes-macao.com/upload/thumb_src/600_400/1525502622.JPG"
+          url: require("@/assets/post/5/1.jpg")
         }
       ],
       content:
@@ -307,8 +296,7 @@ export function fakeApiPosts(): Array<Post> {
       id: 3,
       img: [
         {
-          url:
-            "https://lh3.ggpht.com/p/AF1QipO0M6egm9yIrKXHZ8_AF65RNyq-ixqovt91eRm9=s1024"
+          url: require("@/assets/post/6/1.jpg")
         }
       ],
       content: "人氣分享",
@@ -331,8 +319,7 @@ export function fakeApiPosts(): Array<Post> {
       id: 1,
       img: [
         {
-          url:
-            "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/113999567_3002065353175619_7710923728805403943_o.jpg?_nc_cat=106&_nc_sid=730e14&_nc_ohc=_xLtthHMsasAX91xapB&_nc_ht=scontent-hkt1-1.xx&oh=886d232dfe147aef2bff927121bdfab7&oe=5F720C54"
+          url: require("@/assets/post/7/1.jpg")
         }
       ],
       content: "澳門創意產業科學館活動設計",
