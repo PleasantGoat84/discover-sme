@@ -48,7 +48,7 @@
         :src="
           `https://www.google.com/maps/embed/v1/place?key=${mapApiKey}&q=${sme.gPos.latitude},${sme.gPos.longitude}`
         "
-        style="height: 100vh;"
+        style="height: 80vh;"
       />
     </v-dialog>
   </v-card>
