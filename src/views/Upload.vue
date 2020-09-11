@@ -11,7 +11,12 @@
 
         <v-card-text class="pt-4">
           <UploadForm ref="uploadForm" v-show="!uploadFinish" />
-          <PostCard v-if="uploadFinish" :post="getGeneratedPost()" />
+          <template v-if="uploadFinish">
+            <v-alert type="success">
+              分享已成功發佈, 同時已電郵至 PleasantGoat84@gmail.com!
+            </v-alert>
+            <PostCard :post="getGeneratedPost()"
+          /></template>
         </v-card-text>
 
         <v-card-actions class="justify-center pb-10 mt-3">
@@ -124,9 +129,6 @@ export default class Upload extends Vue {
       mode: "no-cors"
     }).then(res => {
       console.log(res);
-      alert(
-        "form to email request has been sent! check console for more info!"
-      );
     });
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - */
