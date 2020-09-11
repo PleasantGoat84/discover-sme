@@ -33,7 +33,10 @@ const routes: Array<RouteConfig> = [
   },
   {
     path: "*",
-    redirect: "/home"
+    redirect: {
+      path: "/home",
+      query: {}
+    }
   }
 ];
 
