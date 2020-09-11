@@ -9,6 +9,7 @@
       :page.sync="page"
       @page-count="pageCount = $event"
       class="elevation-1"
+      :items-per-page="5"
     >
       <template v-slot:top>
         <v-text-field
@@ -31,7 +32,7 @@
 import { Component, Vue } from "vue-property-decorator";
 
 import { Sme, HotSme, SmeCategory } from "@/types";
-import { fakeApiCategories, fakeApiHotSmes } from "@/fake-api";
+import { fakeApiAllSmes, fakeApiCategories } from "@/fake-api";
 
 interface TableHeader {
   text: string;
@@ -99,7 +100,7 @@ export default class SmeTable extends Vue {
       this.categoryMap[SmeCategory[categories[key]]] = key;
 
     setTimeout(() => {
-      this.tableItems = fakeApiHotSmes();
+      this.tableItems = fakeApiAllSmes();
     }, 2000);
   }
 }

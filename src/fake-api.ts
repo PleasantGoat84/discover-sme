@@ -99,15 +99,109 @@ export function fakeApiHotSmes(): Array<HotSme & SmeWithGPos> {
   ];
 }
 
+export function fakeApiAllSmes(): Array<HotSme> {
+  return [
+    ...fakeApiHotSmes(),
+    {
+      name: "七賢小食店",
+      rank: 4,
+      popularity: 312,
+      imgs: [],
+      id: 165,
+      category: SmeCategory.Cafe
+    },
+    {
+      name: "彬彬制服專家",
+      rank: 5,
+      popularity: 297,
+      imgs: [],
+      id: 985,
+      category: SmeCategory.Other
+    },
+    {
+      name: "Galeries RC 日式雜貨禮品店",
+      rank: 6,
+      popularity: 124,
+      imgs: [],
+      id: 85,
+      category: SmeCategory.Other
+    },
+    {
+      name: "時香花生瓜子",
+      rank: 7,
+      popularity: 215,
+      imgs: [],
+      id: 81,
+      category: SmeCategory.Cafe
+    },
+    {
+      name: "樂韻琴行",
+      rank: 8,
+      popularity: 201,
+      imgs: [],
+      id: 898,
+      category: SmeCategory.Musical
+    },
+    {
+      name: "蘭枝手作坊",
+      rank: 9,
+      popularity: 187,
+      imgs: [],
+      id: 366,
+      category: SmeCategory.Barber
+    },
+    {
+      name: "七賢小食店",
+      rank: 14,
+      popularity: 31,
+      imgs: [],
+      id: 1065,
+      category: SmeCategory.Cafe
+    },
+    {
+      name: "彬彬制服專家",
+      rank: 15,
+      popularity: 29,
+      imgs: [],
+      id: 9085,
+      category: SmeCategory.Other
+    },
+    {
+      name: "Galeries RC 日式雜貨禮品店",
+      rank: 16,
+      popularity: 12,
+      imgs: [],
+      id: 805,
+      category: SmeCategory.Other
+    },
+    {
+      name: "時香花生瓜子",
+      rank: 17,
+      popularity: 21,
+      imgs: [],
+      id: 801,
+      category: SmeCategory.Cafe
+    },
+    {
+      name: "樂韻琴行",
+      rank: 18,
+      popularity: 20,
+      imgs: [],
+      id: 8098,
+      category: SmeCategory.Musical
+    },
+    {
+      name: "蘭枝手作坊",
+      rank: 19,
+      popularity: 18,
+      imgs: [],
+      id: 3066,
+      category: SmeCategory.Barber
+    }
+  ];
+}
+
 export function fakeApiCarousel(): Array<CarouselItem> {
-  // const events: Array<SmeEvent> = [];
-
-  // for (let i = 1; i <= 10; i++)
-  //   events.push({
-  //     carouselImg: { url: "http://via.placeholder.com/400x200" },
-  //     id: i
-  //   });
-
   return [
     {
       carouselImg: {
