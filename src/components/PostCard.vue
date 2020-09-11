@@ -41,7 +41,15 @@
       />
     </v-carousel>
 
-    <v-card-text v-text="post.content" style="white-space: pre-line;" />
+    <v-card-text style="white-space: pre-line;">
+      {{ textCollapsed ? collapsedText : post.content }}
+
+      <div class="d-flex justify-end" v-if="collapseEnabled">
+        <v-btn text color="info" @click="textCollapsed = !textCollapsed" small>
+          {{ textCollapsed ? "更多" : "收起" }}
+        </v-btn>
+      </div>
+    </v-card-text>
 
     <v-card-actions>
       <v-btn
@@ -83,12 +91,25 @@ import { Post } from "@/types.ts";
 export default class PostCard extends Vue {
   @Prop() private post!: Post;
 
+  private textCollapsed = true;
+  private readonly collapseValue = 75;
+
   private imgDialog = false;
   private dialogImgSrc = "";
 
   private openImgDialog(src: string) {
     this.imgDialog = true;
     this.dialogImgSrc = src;
+  }
+
+  get collapseEnabled(): boolean {
+    return this.post.content.length > this.collapseValue;
+  }
+
+  get collapsedText(): string {
+    if (this.post.content.length <= this.collapseValue)
+      return this.post.content;
+    return this.post.content.substr(0, this.collapseValue) + "......";
   }
 
   get pop(): number {
