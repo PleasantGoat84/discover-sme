@@ -1,13 +1,6 @@
 <template>
   <v-card class="pb-1" color="lite">
-    <v-btn
-      icon
-      absolute
-      top
-      right
-      color="info"
-      :to="{ path: '/locate', query: { id: sme.id } }"
-    >
+    <v-btn icon absolute top right color="info" @click="openMap">
       <v-icon>mdi-map-search</v-icon>
     </v-btn>
 
@@ -49,26 +42,42 @@
     <v-dialog v-model="imgDialog" overlay-opacity="0.95">
       <v-img :src="dialogImgSrc" />
     </v-dialog>
+
+    <v-dialog v-model="mapDialog" overlay-opacity="0.95">
+      <iframe
+        :src="
+          `https://www.google.com/maps/embed/v1/place?key=${mapApiKey}&q=${sme.gPos.latitude},${sme.gPos.longitude}`
+        "
+        style="height: 100vh;"
+      />
+    </v-dialog>
   </v-card>
 </template>
 
 <script lang="ts">
 import { Component, Vue, Prop } from "vue-property-decorator";
 
-import { HotSme, SmeCategory } from "@/types.ts";
+import { HotSme, SmeCategory, SmeWithGPos } from "@/types.ts";
 
 @Component
 export default class HotSmeCard extends Vue {
-  @Prop() private sme!: HotSme;
+  @Prop() private sme!: HotSme & SmeWithGPos;
 
   private imgDialog = false;
   private dialogImgSrc = "";
+
+  private mapDialog = false;
+  private readonly mapApiKey = "AIzaSyDnO6mwzdpsVUleCd-jOHT1kCApjM6IMaI";
 
   private icons: { [key: string]: string } = {};
 
   private openImgDialog(src: string) {
     this.imgDialog = true;
     this.dialogImgSrc = src;
+  }
+
+  private openMap(): void {
+    this.mapDialog = true;
   }
 
   getSmeIcon(category: SmeCategory): string {

@@ -36,6 +36,13 @@ export interface Sme {
   category: SmeCategory;
 }
 
+export interface SmeWithGPos {
+  gPos: {
+    latitude: number;
+    longitude: number;
+  };
+}
+
 export interface HotSme extends Sme {
   rank: number;
   popularity: number;

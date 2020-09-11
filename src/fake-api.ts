@@ -1,6 +1,13 @@
-import { HotSme, SmeCategory, Post, UploadForm, CarouselItem } from "./types";
+import {
+  HotSme,
+  SmeCategory,
+  Post,
+  UploadForm,
+  CarouselItem,
+  SmeWithGPos
+} from "./types";
 
-export function fakeApiHotSmes(): Array<HotSme> {
+export function fakeApiHotSmes(): Array<HotSme & SmeWithGPos> {
   return [
     {
       name: "新爽爽豬肉丸美食",
@@ -35,7 +42,11 @@ export function fakeApiHotSmes(): Array<HotSme> {
             "https://e.share.photo.xuite.net/nickhh/1ec472f/4695535/179324224_l.jpg"
         }
       ],
-      category: SmeCategory.Cafe
+      category: SmeCategory.Cafe,
+      gPos: {
+        latitude: 22.205367,
+        longitude: 113.545896
+      }
     },
     {
       name: "CraftsmanShip 匠舫",
@@ -64,7 +75,11 @@ export function fakeApiHotSmes(): Array<HotSme> {
             "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/74698789_2430898600279488_337845743865823232_o.jpg?_nc_cat=108&_nc_sid=8bfeb9&_nc_ohc=duSqjO_1fygAX9uvmwt&_nc_ht=scontent-hkt1-1.xx&oh=eecebb909d3edc6c2457308e34f3411b&oe=5F6E5E61"
         }
       ],
-      category: SmeCategory.Other
+      category: SmeCategory.Other,
+      gPos: {
+        latitude: 22.196416,
+        longitude: 113.545621
+      }
     },
     {
       name: "茶里",
@@ -89,7 +104,11 @@ export function fakeApiHotSmes(): Array<HotSme> {
             "https://scontent-hkt1-1.xx.fbcdn.net/v/t1.0-9/58376328_1046257278895900_4098097256555610112_o.jpg?_nc_cat=104&_nc_sid=730e14&_nc_ohc=v7BMdPxjfHkAX_doN56&_nc_ht=scontent-hkt1-1.xx&oh=ee5de639d1cc14e3b907fcd2059f1fb5&oe=5F71B962"
         }
       ],
-      category: SmeCategory.Drink
+      category: SmeCategory.Drink,
+      gPos: {
+        latitude: 22.209562,
+        longitude: 113.543913
+      }
     }
   ];
 }
